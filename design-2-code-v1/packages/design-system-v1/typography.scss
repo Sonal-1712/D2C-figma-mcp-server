@@ -1,0 +1,609 @@
+/**
+ * Wimbledon Design Language — Typography SCSS
+ * File: wdl_typography.scss
+ * 
+ * Converted from wdl_typography.js to SCSS format for better integration
+ * with Carbon Design System and SCSS workflows.
+ * 
+ * Conventions:
+ * - Sizes are authored in pt in the spec; on web we convert to rem.
+ * - Line-height authored as percentages -> unitless (e.g., 150% -> 1.5).
+ * - Letter-spacing authored as percentages -> em (e.g., -3% -> -0.03em).
+ * - Fonts: provide families and weights; you can wire actual @font-face
+ *   elsewhere (Carbon typically expects this too).
+ */
+
+/* -----------------------------------------------------------------------------
+ * Utilities & Functions
+ * ---------------------------------------------------------------------------*/
+
+// Convert Points → REM (1pt = 1.3333px at 96dpi; 1rem = 16px)
+@function pt-to-rem($pt) {
+  @return ($pt * (96 / 72)) / 16;
+}
+
+// Convert percentage to em letter-spacing, e.g. -3% => -0.03em
+@function pct-to-em($pct) {
+  @return ($pct / 100);
+}
+
+// Convert percentage line-height to unitless number, e.g. 150% => 1.5
+@function pct-to-lh($pct) {
+  @return ($pct / 100);
+}
+
+/* -----------------------------------------------------------------------------
+ * Font families & weights
+ * ---------------------------------------------------------------------------*/
+ $wdl-fonts: (
+  gotham: (Gotham, 'Gotham SSm A', 'Gotham SSm B', -apple-system, system-ui, Arial, sans-serif),
+  caslon: ("Adobe Caslon Pro", "Caslon", Georgia, serif)
+);
+
+$wdl-weights: (
+  book: 400,
+  regular: 400,
+  medium: 500,
+  bold: 700
+);
+
+/* -----------------------------------------------------------------------------
+ * Typography Mixins
+ * ---------------------------------------------------------------------------*/
+
+// Base typography mixin
+@mixin wdl-typography($family, $weight: 400, $size-pt, $line-height-pct, $letter-spacing-pct: 0, $transform: null) {
+  font-family: $family;
+  font-weight: $weight;
+  font-size: pt-to-rem($size-pt) + rem;
+  line-height: pct-to-lh($line-height-pct);
+  letter-spacing: pct-to-em($letter-spacing-pct) + em;
+  @if $transform {
+    text-transform: $transform;
+  }
+}
+
+// Medium heading mixin with line-height logic
+@mixin wdl-medium-heading($size-pt, $caps: false) {
+  $line-height: 95%;
+  @if not $caps {
+    @if $size-pt >= 32 {
+      $line-height: 100%;
+    } @else if $size-pt == 28 {
+      $line-height: 120%;
+    } @else {
+      $line-height: 150%;
+    }
+  }
+  
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, medium),
+    $size-pt: $size-pt,
+    $line-height-pct: $line-height,
+    $letter-spacing-pct: -3,
+    $transform: if($caps, uppercase, null)
+  );
+}
+
+/* -----------------------------------------------------------------------------
+ * Typography Classes
+ * ---------------------------------------------------------------------------*/
+
+// Expressive (Caslon) Headings
+.wdl-heading-01-expressive {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, caslon),
+    $weight: map-get($wdl-weights, regular),
+    $size-pt: 48,
+    $line-height-pct: 100,
+    $letter-spacing-pct: 2
+  );
+}
+
+.wdl-heading-02-expressive-caps {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, caslon),
+    $weight: map-get($wdl-weights, regular),
+    $size-pt: 32,
+    $line-height-pct: 100,
+    $letter-spacing-pct: 2,
+    $transform: uppercase
+  );
+}
+
+.wdl-heading-02-expressive {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, caslon),
+    $weight: map-get($wdl-weights, regular),
+    $size-pt: 32,
+    $line-height-pct: 100,
+    $letter-spacing-pct: 2
+  );
+}
+
+// Core (Gotham Medium) Headings
+.wdl-heading-01 {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, medium),
+    $size-pt: 40,
+    $line-height-pct: 100,
+    $letter-spacing-pct: -3
+  );
+}
+
+.wdl-heading-02-caps {
+  @include wdl-medium-heading(32, true);
+}
+
+.wdl-heading-02 {
+  @include wdl-medium-heading(32, false);
+}
+
+.wdl-heading-03 {
+  @include wdl-medium-heading(28, false);
+}
+
+.wdl-heading-04 {
+  @include wdl-medium-heading(24, false);
+}
+
+.wdl-heading-05 {
+  @include wdl-medium-heading(20, false);
+}
+
+.wdl-heading-06 {
+  @include wdl-medium-heading(16, false);
+}
+
+.wdl-heading-07 {
+  @include wdl-medium-heading(12, false);
+}
+
+.wdl-heading-08 {
+  @include wdl-medium-heading(14, false);
+}
+
+.wdl-heading-08-caps {
+  @include wdl-medium-heading(24, true);
+}
+
+.wdl-heading-09 {
+  @include wdl-medium-heading(20, false);
+}
+
+.wdl-heading-09-caps {
+  @include wdl-medium-heading(20, true);
+}
+
+.wdl-heading-10 {
+  @include wdl-medium-heading(14, false);
+}
+
+.wdl-heading-10-caps {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, medium),
+    $size-pt: 18,
+    $line-height-pct: 95,
+    $letter-spacing-pct: -3,
+    $transform: uppercase
+  );
+}
+
+.wdl-heading-11 {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, book),
+    $size-pt: 12,
+    $line-height-pct: 120,
+    $letter-spacing-pct: -3
+  );
+}
+
+.wdl-heading-12 {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, medium),
+    $size-pt: 14,
+    $line-height-pct: 120,
+    $letter-spacing-pct: -3
+  );
+}
+
+.wdl-heading-13 {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, book),
+    $size-pt: 12,
+    $line-height-pct: 120,
+    $letter-spacing-pct: -3
+  );
+}
+
+.wdl-heading-14 {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, medium),
+    $size-pt: 10,
+    $line-height-pct: 120,
+    $letter-spacing-pct: -3
+  );
+}
+
+// Display Headings (Big caps)
+.wdl-display-140-caps {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, bold),
+    $size-pt: 140,
+    $line-height-pct: 95,
+    $letter-spacing-pct: -5,
+    $transform: uppercase
+  );
+}
+
+.wdl-display-88-caps {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, bold),
+    $size-pt: 88,
+    $line-height-pct: 95,
+    $letter-spacing-pct: -5,
+    $transform: uppercase
+  );
+}
+
+.wdl-display-64-caps {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, bold),
+    $size-pt: 64,
+    $line-height-pct: 95,
+    $letter-spacing-pct: -5,
+    $transform: uppercase
+  );
+}
+
+.wdl-display-56-caps {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, bold),
+    $size-pt: 56,
+    $line-height-pct: 95,
+    $letter-spacing-pct: -5,
+    $transform: uppercase
+  );
+}
+
+.wdl-display-40-caps {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, bold),
+    $size-pt: 40,
+    $line-height-pct: 95,
+    $letter-spacing-pct: -3,
+    $transform: uppercase
+  );
+}
+
+.wdl-display-32-caps {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, bold),
+    $size-pt: 32,
+    $line-height-pct: 95,
+    $letter-spacing-pct: -3,
+    $transform: uppercase
+  );
+}
+
+.wdl-display-28-caps {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, bold),
+    $size-pt: 28,
+    $line-height-pct: 95,
+    $letter-spacing-pct: -3,
+    $transform: uppercase
+  );
+}
+
+// Sentence-case display variants
+.wdl-display-56-sentence {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, bold),
+    $size-pt: 56,
+    $line-height-pct: 95,
+    $letter-spacing-pct: -3
+  );
+}
+
+.wdl-display-32-sentence {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, bold),
+    $size-pt: 32,
+    $line-height-pct: 95,
+    $letter-spacing-pct: -3
+  );
+}
+
+/* -----------------------------------------------------------------------------
+ * Body Text Classes
+ * ---------------------------------------------------------------------------*/
+
+// Core Body Text
+.wdl-body-01 {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, book),
+    $size-pt: 18,
+    $line-height-pct: 150,
+    $letter-spacing-pct: -3
+  );
+}
+
+.wdl-body-02 {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, book),
+    $size-pt: 16,
+    $line-height-pct: 150,
+    $letter-spacing-pct: -3
+  );
+}
+
+.wdl-body-03 {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, book),
+    $size-pt: 14,
+    $line-height-pct: 120,
+    $letter-spacing-pct: -3
+  );
+}
+
+.wdl-body-04 {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, book),
+    $size-pt: 12,
+    $line-height-pct: 120,
+    $letter-spacing-pct: -3
+  );
+}
+
+// Body Text with List Spacing
+.wdl-body-01-list {
+  @extend .wdl-body-01;
+  // Additional list spacing can be applied via margin/padding utilities
+}
+
+.wdl-body-02-list {
+  @extend .wdl-body-02;
+}
+
+.wdl-body-03-list {
+  @extend .wdl-body-03;
+}
+
+// Expressive Body Text (Caslon)
+.wdl-body-01-expressive {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, caslon),
+    $weight: map-get($wdl-weights, regular),
+    $size-pt: 20,
+    $line-height-pct: 150,
+    $letter-spacing-pct: 2
+  );
+}
+
+.wdl-body-02-expressive {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, caslon),
+    $weight: map-get($wdl-weights, regular),
+    $size-pt: 18,
+    $line-height-pct: 150,
+    $letter-spacing-pct: 2
+  );
+}
+
+.wdl-body-03-expressive {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, caslon),
+    $weight: map-get($wdl-weights, regular),
+    $size-pt: 16,
+    $line-height-pct: 150,
+    $letter-spacing-pct: 2
+  );
+}
+
+.wdl-body-04-expressive {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, caslon),
+    $weight: map-get($wdl-weights, regular),
+    $size-pt: 14,
+    $line-height-pct: 150,
+    $letter-spacing-pct: 2
+  );
+}
+
+// Expressive Body Text with List Spacing
+.wdl-body-01-expressive-list {
+  @extend .wdl-body-01-expressive;
+}
+
+.wdl-body-02-expressive-list {
+  @extend .wdl-body-02-expressive;
+}
+
+/* -----------------------------------------------------------------------------
+ * Label Classes
+ * ---------------------------------------------------------------------------*/
+
+.wdl-label-01 {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, book),
+    $size-pt: 14,
+    $line-height-pct: 150,
+    $letter-spacing-pct: -3
+  );
+}
+
+.wdl-label-02 {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, book),
+    $size-pt: 12,
+    $line-height-pct: 120,
+    $letter-spacing-pct: -3
+  );
+}
+
+.wdl-label-03 {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, book),
+    $size-pt: 10,
+    $line-height-pct: 120,
+    $letter-spacing-pct: -3
+  );
+}
+
+.wdl-label-04 {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, book),
+    $size-pt: 8,
+    $line-height-pct: 120,
+    $letter-spacing-pct: -3
+  );
+}
+
+.wdl-label-05 {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, book),
+    $size-pt: 6,
+    $line-height-pct: 120,
+    $letter-spacing-pct: -3
+  );
+}
+
+.wdl-label-05-medium {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, medium),
+    $size-pt: 6,
+    $line-height-pct: 120,
+    $letter-spacing-pct: -3
+  );
+}
+
+/* -----------------------------------------------------------------------------
+ * Helper Text Classes
+ * ---------------------------------------------------------------------------*/
+
+.wdl-helper-01 {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, book),
+    $size-pt: 12,
+    $line-height-pct: 120,
+    $letter-spacing-pct: -3
+  );
+}
+
+.wdl-helper-02 {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, book),
+    $size-pt: 10,
+    $line-height-pct: 120,
+    $letter-spacing-pct: -3
+  );
+}
+
+/* -----------------------------------------------------------------------------
+ * Tag Classes
+ * ---------------------------------------------------------------------------*/
+
+.wdl-tag-01 {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, medium),
+    $size-pt: 14,
+    $line-height-pct: 120,
+    $letter-spacing-pct: -3,
+    $transform: uppercase
+  );
+}
+
+.wdl-tag-02 {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, medium),
+    $size-pt: 12,
+    $line-height-pct: 120,
+    $letter-spacing-pct: -3,
+    $transform: uppercase
+  );
+}
+
+.wdl-tag-03 {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, medium),
+    $size-pt: 10,
+    $line-height-pct: 120,
+    $letter-spacing-pct: -3,
+    $transform: uppercase
+  );
+}
+
+.wdl-tag-04 {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, medium),
+    $size-pt: 8,
+    $line-height-pct: 120,
+    $letter-spacing-pct: -3,
+    $transform: uppercase
+  );
+}
+
+.wdl-tag-05 {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, gotham),
+    $weight: map-get($wdl-weights, medium),
+    $size-pt: 6,
+    $line-height-pct: 120,
+    $letter-spacing-pct: -3,
+    $transform: uppercase
+  );
+}
+
+/* -----------------------------------------------------------------------------
+ * Link Classes
+ * ---------------------------------------------------------------------------*/
+
+.wdl-link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.wdl-link-01-expressive {
+  @include wdl-typography(
+    $family: map-get($wdl-fonts, caslon),
+    $weight: map-get($wdl-weights, regular),
+    $size-pt: 20,
+    $line-height-pct: 150,
+    $letter-spacing-pct: 2
+  );
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -1,0 +1,279 @@
+// TabsItem.scss
+@import '../../../design-system-v1/src/scss/colors.scss';
+@import '../../../design-system-v1/src/scss/typography.scss';
+@import '../../../design-system-v1/src/scss/tokens.scss';
+@import '../../../../applications/sample-application-v1/src/styles/design-system/spacing.scss';
+
+.wdl-tabs-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: map-get($wdl-spacing, spacing-05) map-get($wdl-spacing, spacing-05);
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  gap: 8px; // Increased gap for better spacing between elements
+
+  // Size variants
+  &--small {
+    .wdl-tabs-item__text {
+      font-family: 'Gotham', sans-serif;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 1.2;
+      letter-spacing: -0.36px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .wdl-tabs-item__tag {
+      height: 10px;
+      min-height: 10px;
+      padding: 2px;
+      border-radius: 1000000000px;
+    }
+
+    .wdl-tabs-item__badge {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+  }
+
+  &--medium {
+    .wdl-tabs-item__text {
+      font-family: 'Gotham', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1.2;
+      letter-spacing: -0.42px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .wdl-tabs-item__tag {
+      height: 15px;
+      min-height: 15px;
+      padding: 4px 6px;
+      border-radius: 1000000000px;
+    }
+
+    .wdl-tabs-item__badge {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+  }
+
+  &--large {
+    .wdl-tabs-item__text {
+      font-family: 'Gotham', sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1.2;
+      letter-spacing: -0.48px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .wdl-tabs-item__tag {
+      height: 15px;
+      min-height: 15px;
+      padding: 4px 6px;
+      border-radius: 1000000000px;
+    }
+
+    .wdl-tabs-item__badge {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+  }
+
+  // Alignment variants
+  &--left {
+    justify-content: flex-start;
+  }
+
+  &--centre {
+    justify-content: center;
+  }
+
+  // State variants for Default theme
+  &.wdl-tabs-item--default.wdl-tabs-item--default {
+    border-bottom-color: map-get($wdl-border, border-strong);
+    
+    .wdl-tabs-item__text {
+      color: map-get($wdl-text, text-secondary);
+    }
+  }
+
+  &.wdl-tabs-item--selected.wdl-tabs-item--default {
+    border-bottom-color: map-get($wdl-border, border-brand-01);
+    
+    .wdl-tabs-item__text {
+      color: map-get($wdl-text, text-brand-01);
+    }
+  }
+
+  &.wdl-tabs-item--hover.wdl-tabs-item--default {
+    border-bottom-color: map-get($wdl-border, border-strong);
+    
+    .wdl-tabs-item__text {
+      color: map-get($wdl-text, text-primary);
+    }
+  }
+
+  &.wdl-tabs-item--focus.wdl-tabs-item--default {
+    border: 2px solid map-get($wdl-focus, focus);
+    
+    .wdl-tabs-item__text {
+      color: map-get($wdl-text, text-primary);
+    }
+  }
+
+  &.wdl-tabs-item--disabled.wdl-tabs-item--default {
+    border-bottom-color: map-get($wdl-border, border-disabled);
+    
+    .wdl-tabs-item__text {
+      color: map-get($wdl-text, text-disabled);
+    }
+  }
+
+  &.wdl-tabs-item--skeleton.wdl-tabs-item--default {
+    border-bottom-color: map-get($wdl-misc, skeleton-element);
+  }
+
+  // State variants for Inverse theme
+  &.wdl-tabs-item--default.wdl-tabs-item--inverse {
+    border-bottom-color: map-get($wdl-border, border-disabled-inverse);
+    
+    .wdl-tabs-item__text {
+      color: map-get($wdl-text, text-inverse-secondary-01-light);
+    }
+  }
+
+  &.wdl-tabs-item--selected.wdl-tabs-item--inverse {
+    border-bottom-color: map-get($wdl-border, border-white);
+    
+    .wdl-tabs-item__text {
+      color: map-get($wdl-text, text-inverse);
+    }
+  }
+
+  &.wdl-tabs-item--hover.wdl-tabs-item--inverse {
+    border-bottom-color: map-get($wdl-border, border-disabled-inverse);
+    
+    .wdl-tabs-item__text {
+      color: map-get($wdl-text, text-inverse);
+    }
+  }
+
+  &.wdl-tabs-item--focus.wdl-tabs-item--inverse {
+    border: 2px solid map-get($wdl-focus, focus);
+    
+    .wdl-tabs-item__text {
+      color: map-get($wdl-text, text-inverse);
+    }
+  }
+
+  &.wdl-tabs-item--disabled.wdl-tabs-item--inverse {
+    border-bottom-color: map-get($wdl-border, border-light-inverse);
+    
+    .wdl-tabs-item__text {
+      color: map-get($wdl-text, text-disabled-inverse);
+    }
+  }
+
+  &.wdl-tabs-item--skeleton.wdl-tabs-item--inverse {
+    border-bottom-color: map-get($wdl-misc, skeleton-element);
+  }
+
+  // Skeleton state
+  &--skeleton {
+    width: 96px;
+
+    &.wdl-tabs-item--medium.wdl-tabs-item--centre {
+      width: 108px;
+    }
+
+    &.wdl-tabs-item--large.wdl-tabs-item--centre {
+      width: 111px;
+    }
+
+    .wdl-tabs-item__skeleton-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 17px;
+
+      .wdl-tabs-item__skeleton-line {
+        width: 100%;
+        height: 8px;
+        background-color: map-get($wdl-misc, skeleton-element);
+      }
+    }
+  }
+
+  // Tag styling
+  &__tag {
+    display: flex;
+    align-items: center;
+    gap: 6px; // Increased gap for better spacing within tag
+    flex-shrink: 0;
+    background-color: map-get($wdl-background, background-brand-01);
+
+    &--small {
+      gap: 2px; // Added small gap instead of 0px for better text spacing
+    }
+
+    &-text {
+      font-family: 'Gotham', sans-serif;
+      font-weight: 500;
+      font-size: 6px;
+      line-height: 1.2;
+      letter-spacing: -0.18px;
+      text-transform: uppercase;
+      color: map-get($wdl-text, text-highlight);
+      white-space: nowrap;
+
+      .wdl-tabs-item--medium & {
+        font-size: 10px;
+        letter-spacing: -0.3px;
+      }
+    }
+  }
+
+  // Badge styling
+  &__badge {
+    background-color: map-get($wdl-icon, icon-interactive-1);
+    flex-shrink: 0;
+    display: inline-block;
+    margin-left: 2px; // Add slight margin for better spacing
+  }
+
+  // Content styling
+  &__content {
+    flex-shrink: 0;
+    margin: 0 2px; // Add slight margin for better spacing
+    
+    .wdl-tabs-item__text {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  // When center and with flexible content
+  &--centre .wdl-tabs-item__content {
+    flex: 1 0 0;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    .wdl-tabs-item__text {
+      text-align: center;
+      overflow: hidden;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+/* Import Wimbledon design tokens */
+@use './design-system/colors.scss' as colors;
+@use './design-system/typography.scss' as typography;
+@use './design-system/spacing.scss' as spacing;
+@use './design-system/tokens.scss' as tokens;
+@use "sass:map";
+
+/* Application-specific variables */
+:root {
+  /* Layout */
+  --max-width: 1200px;
+  --header-height: 80px;
+  --footer-height: 60px;
+
+  /* Form */
+  --form-field-gap: map.get(spacing.$wdl-spacing, spacing-md);
+  --form-section-gap: map.get(spacing.$wdl-spacing, spacing-lg);
+
+  /* Transitions */
+  --transition-speed: 0.3s;
+  --transition-easing: ease-in-out;
+}

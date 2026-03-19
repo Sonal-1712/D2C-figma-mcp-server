@@ -1,0 +1,42 @@
+// Badge.scss
+@use "../../design-system-v1/src/scss/colors" as *;
+@use "../../design-system-v1/src/scss/tokens" as *;
+
+.wdl-badge {
+  display: inline-block;
+  border-radius: 50%;
+  
+  // Indicator badge style - simple dot
+  &--indicator {
+    width: 8px;
+    height: 8px;
+    background-color: var(--wdl-support-success);
+  }
+  
+  // Status badge style - slightly larger with border
+  &--status {
+    width: 10px;
+    height: 10px;
+    background-color: var(--wdl-support-error);
+    border: 1px solid var(--wdl-layer-01);
+  }
+  
+  // Counter badge style - with number
+  &--counter {
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    background-color: var(--wdl-support-error);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  &__count {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--wdl-text-on-colour);
+    line-height: 1;
+  }
+}

@@ -1,0 +1,45 @@
+/* Import Wimbledon design tokens */
+@use './design-system/colors.scss' as colors;
+@use './design-system/typography.scss' as typography;
+@use './design-system/spacing.scss' as spacing;
+@use './design-system/tokens.scss' as tokens;
+@use "sass:map";
+
+/* Global styles */
+:root {
+  --foreground-rgb: map.get(colors.$wdl-text, text-primary);
+  --background-rgb: colors.$white;
+}
+
+body {
+  color: var(--foreground-rgb);
+  background: var(--background-rgb);
+  font-family: map.get(typography.$wdl-fonts, gotham);
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: map.get(typography.$wdl-fonts, gotham);
+  margin-top: 0;
+}
+
+a {
+  color: map.get(colors.$wdl-link, link-primary);
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 map.get(spacing.$wdl-spacing, spacing-md);
+}
+
+.page-container {
+  padding: map.get(spacing.$wdl-spacing, spacing-lg);
+}

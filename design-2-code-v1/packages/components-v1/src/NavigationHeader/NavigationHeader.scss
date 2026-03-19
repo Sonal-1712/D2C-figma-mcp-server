@@ -1,0 +1,242 @@
+// NavigationHeader.scss
+@import "../../../design-system-v1/src/scss/colors.scss";
+@import "../../../design-system-v1/src/scss/typography.scss";
+@import "../../../design-system-v1/src/scss/tokens.scss";
+
+.navigation-header {
+  display: flex;
+  width: 100%;
+  height: 78px;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
+  
+  // Default theme
+  &--theme-default {
+    background-color: map-get($wdl-layer, layer-01);
+    border-bottom: 1px solid map-get($wdl-border, border-strong);
+  }
+  
+  // Inverse theme
+  &--theme-inverse {
+    background-color: transparent;
+  }
+
+  &__content {
+    display: flex;
+    flex: 1 0 0;
+    height: 100%;
+    align-items: center;
+    max-width: 1340px;
+    min-height: 1px;
+    min-width: 1px;
+    position: relative;
+  }
+
+  &__navigation-content {
+    display: flex;
+    flex: 1 0 0;
+    height: 100%;
+    align-items: center;
+    min-height: 1px;
+    min-width: 1px;
+    position: relative;
+    
+    // Mobile breakpoint
+    .navigation-header--breakpoint-mobile & {
+      align-items: flex-start;
+      padding-top: 12px;
+    }
+  }
+
+  &__burger-menu {
+    display: flex;
+    align-items: center;
+    padding-right: 0;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  &__divider {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    position: relative;
+    flex-shrink: 0;
+    
+    &-line {
+      background-color: map-get($wdl-border, border-strong);
+      height: 44px;
+      width: 1px;
+      flex-shrink: 0;
+      
+      .navigation-header--theme-inverse & {
+        background-color: map-get($wdl-border, border-strong-inverse);
+      }
+    }
+  }
+
+  &__tab-group {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  &__tab {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 16px 12px;
+    position: relative;
+    flex-shrink: 0;
+    
+    &-content {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      position: relative;
+      flex-shrink: 0;
+    }
+    
+    &-text {
+      font-family: map-get($wdl-fonts, gotham);
+      font-weight: map-get($wdl-weights, medium);
+      font-size: pt-to-rem(14) + rem;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+      color: map-get($wdl-text, text-primary);
+      
+      .navigation-header--theme-inverse & {
+        color: map-get($wdl-text, text-inverse);
+      }
+    }
+    
+    &-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      overflow: clip;
+      position: relative;
+      flex-shrink: 0;
+      
+      svg {
+        width: 100%;
+        height: 100%;
+        fill: currentColor;
+      }
+      
+      .navigation-header--theme-inverse & {
+        svg {
+          fill: map-get($wdl-text, text-inverse);
+        }
+      }
+    }
+  }
+
+  &__logo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    padding: 8px 40px;
+    position: relative;
+    flex-shrink: 0;
+    
+    // Mobile breakpoint
+    .navigation-header--breakpoint-mobile & {
+      padding-top: 12px;
+      padding-bottom: 4px;
+    }
+    
+    &-image {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &__date {
+    @extend .wdl-heading-13;
+    color: map-get($wdl-text, text-primary);
+    white-space: nowrap;
+    margin: 0;
+    
+    .navigation-header--theme-inverse & {
+      color: map-get($wdl-text, text-inverse);
+    }
+  }
+
+  &__navigation-actions {
+    display: flex;
+    flex: 1 0 0;
+    gap: 8px;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 1px;
+    min-width: 1px;
+    position: relative;
+    
+    // Mobile breakpoint
+    .navigation-header--breakpoint-mobile & {
+      align-items: flex-start;
+      padding-top: 12px;
+      gap: 0;
+    }
+  }
+
+  &__ibm-logo {
+    display: flex;
+    flex-direction: column;
+    height: 44px;
+    align-items: flex-start;
+    justify-content: center;
+    padding-right: 12px;
+    position: relative;
+    flex-shrink: 0;
+    
+    &-image {
+      font-family: IBM Plex Sans, sans-serif;
+      font-weight: 700;
+      height: 16px;
+      width: 42.883px;
+      position: relative;
+      flex-shrink: 0;
+      color: map-get($wdl-text, text-primary);
+      
+      .navigation-header--theme-inverse & {
+        color: map-get($wdl-text, text-inverse);
+      }
+    }
+  }
+
+  // Responsive styles
+  &--breakpoint-desktop {
+    padding: 0 50px;
+    width: 1024px;
+  }
+  
+  &--breakpoint-tablet {
+    padding: 0 50px;
+    width: 675px;
+    height: 70px;
+  }
+  
+  &--breakpoint-mobile {
+    padding: 0 2px;
+    width: 375px;
+    height: 78px;
+  }
+}

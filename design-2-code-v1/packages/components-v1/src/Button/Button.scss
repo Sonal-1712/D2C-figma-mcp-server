@@ -1,0 +1,397 @@
+// Button.scss
+@import '../../../design-system-v1/src/scss/colors.scss';
+@import '../../../design-system-v1/src/scss/typography.scss';
+
+.wdl-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  font-family: map-get($wdl-fonts, gotham);
+  font-weight: 500; // medium
+  border: 1px solid transparent;
+  position: relative;
+  min-width: 100px;
+  overflow: hidden;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  // Loading spinner styles
+  &__loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__spinner {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    animation: spin 1s linear infinite;
+
+    &--small {
+      width: 16px;
+      height: 16px;
+    }
+
+    &-circle {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 2px solid currentColor;
+      border-radius: 50%;
+      border-top-color: transparent;
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  // Style variants
+  // Primary
+  &--primary {
+    background-color: map-get($wdl-button, button-primary);
+    color: map-get($wdl-text, text-on-colour);
+
+    &.wdl-button--hover {
+      background-color: map-get($wdl-button, button-primary-hover);
+    }
+
+    &.wdl-button--active {
+      background-color: map-get($wdl-button, button-primary-active);
+    }
+
+    &.wdl-button--focus {
+      background-color: map-get($wdl-button, button-primary);
+      box-shadow: 0 0 0 2px map-get($wdl-focus, focus);
+      outline: none;
+    }
+
+    &.wdl-button--loading {
+      background-color: map-get($wdl-button, button-primary);
+      cursor: wait;
+    }
+
+    &.wdl-button--disabled,
+    &:disabled {
+      background-color: map-get($wdl-button, button-disabled);
+      color: map-get($wdl-text, text-disabled);
+      cursor: not-allowed;
+    }
+
+    &.wdl-button--skeleton {
+      background-color: map-get($wdl-misc, skeleton-element);
+      color: transparent;
+      cursor: default;
+      animation: skeleton-pulse 2s ease-in-out infinite;
+      
+      * {
+        visibility: hidden;
+      }
+    }
+  }
+
+  // Secondary
+  &--secondary {
+    background-color: map-get($wdl-button, button-secondary);
+    color: map-get($wdl-text, text-primary);
+    border: 1px solid map-get($wdl-border, border-strong);
+
+    &.wdl-button--hover {
+      background-color: map-get($wdl-button, button-secondary-hover);
+    }
+
+    &.wdl-button--active {
+      background-color: map-get($wdl-button, button-secondary-active);
+    }
+
+    &.wdl-button--focus {
+      box-shadow: 0 0 0 2px map-get($wdl-focus, focus);
+      outline: none;
+    }
+
+    &.wdl-button--loading {
+      cursor: wait;
+    }
+
+    &.wdl-button--disabled,
+    &:disabled {
+      background-color: map-get($wdl-button, button-disabled);
+      color: map-get($wdl-text, text-disabled);
+      border-color: map-get($wdl-border, border-disabled);
+      cursor: not-allowed;
+    }
+
+    &.wdl-button--skeleton {
+      background-color: map-get($wdl-misc, skeleton-element);
+      color: transparent;
+      cursor: default;
+      border-color: map-get($wdl-misc, skeleton-element);
+      animation: skeleton-pulse 2s ease-in-out infinite;
+      
+      * {
+        visibility: hidden;
+      }
+    }
+
+    // On-colour theme
+    &.wdl-button--on-colour {
+      background-color: map-get($wdl-button, button-secondary-on-colour);
+      color: map-get($wdl-text, text-primary);
+      border-color: map-get($wdl-border, border-white);
+
+      &.wdl-button--hover {
+        background-color: map-get($wdl-button, button-secondary-on-colour-hover);
+      }
+
+      &.wdl-button--active {
+        background-color: map-get($wdl-button, button-secondary-on-colour-active);
+      }
+    }
+
+    // Inverse theme
+    &.wdl-button--inverse {
+      background-color: map-get($wdl-button, button-secondary-inverse);
+      color: map-get($wdl-text, text-on-colour);
+      border-color: map-get($wdl-border, border-strong-inverse);
+
+      &.wdl-button--hover {
+        background-color: map-get($wdl-button, button-secondary-inverse-hover);
+      }
+
+      &.wdl-button--active {
+        background-color: map-get($wdl-button, button-secondary-inverse-active);
+      }
+
+      &.wdl-button--disabled,
+      &:disabled {
+        background-color: map-get($wdl-button, button-disabled-inverse);
+        color: map-get($wdl-text, text-disabled-inverse);
+        border-color: map-get($wdl-border, border-disabled-inverse);
+      }
+    }
+  }
+
+  // Tertiary
+  &--tertiary {
+    background-color: transparent;
+    color: map-get($wdl-button, button-tertiary);
+
+    &.wdl-button--hover {
+      color: map-get($wdl-button, button-tertiary-hover);
+      text-decoration: underline;
+    }
+
+    &.wdl-button--active {
+      color: map-get($wdl-button, button-tertiary-active);
+    }
+
+    &.wdl-button--focus {
+      box-shadow: 0 0 0 2px map-get($wdl-focus, focus);
+      outline: none;
+    }
+
+    &.wdl-button--loading {
+      cursor: wait;
+    }
+
+    &.wdl-button--disabled,
+    &:disabled {
+      color: map-get($wdl-text, text-disabled);
+      cursor: not-allowed;
+    }
+
+    &.wdl-button--skeleton {
+      color: transparent;
+      cursor: default;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: map-get($wdl-misc, skeleton-element);
+        animation: skeleton-pulse 2s ease-in-out infinite;
+      }
+      
+      * {
+        visibility: hidden;
+      }
+    }
+
+    // Inverse theme
+    &.wdl-button--inverse {
+      color: map-get($wdl-text, text-on-colour);
+
+      &.wdl-button--hover {
+        color: map-get($wdl-text, text-on-colour);
+      }
+
+      &.wdl-button--active {
+        color: map-get($wdl-text, text-on-colour);
+      }
+
+      &.wdl-button--disabled,
+      &:disabled {
+        color: map-get($wdl-text, text-disabled-inverse);
+      }
+    }
+  }
+
+  // Danger primary
+  &--danger-primary {
+    background-color: map-get($wdl-support, support-error);
+    color: map-get($wdl-text, text-on-colour);
+
+    &.wdl-button--hover {
+      background-color: map-get($wdl-button, button-danger-hover);
+    }
+
+    &.wdl-button--active {
+      background-color: map-get($wdl-button, button-danger-active);
+    }
+
+    &.wdl-button--focus {
+      box-shadow: 0 0 0 2px map-get($wdl-focus, focus);
+      outline: none;
+    }
+
+    &.wdl-button--loading {
+      cursor: wait;
+    }
+
+    &.wdl-button--disabled,
+    &:disabled {
+      background-color: map-get($wdl-button, button-disabled);
+      color: map-get($wdl-text, text-disabled);
+      cursor: not-allowed;
+    }
+
+    &.wdl-button--skeleton {
+      background-color: map-get($wdl-misc, skeleton-element);
+      color: transparent;
+      cursor: default;
+      animation: skeleton-pulse 2s ease-in-out infinite;
+      
+      * {
+        visibility: hidden;
+      }
+    }
+  }
+
+  // Danger secondary
+  &--danger-secondary {
+    background-color: map-get($wdl-button, button-secondary);
+    color: map-get($wdl-support, support-error);
+    border: 1px solid map-get($wdl-support, support-error);
+
+    &.wdl-button--hover {
+      background-color: map-get($wdl-button, button-secondary-hover);
+    }
+
+    &.wdl-button--active {
+      background-color: map-get($wdl-button, button-secondary-active);
+    }
+
+    &.wdl-button--focus {
+      box-shadow: 0 0 0 2px map-get($wdl-focus, focus);
+      outline: none;
+    }
+
+    &.wdl-button--loading {
+      cursor: wait;
+    }
+
+    &.wdl-button--disabled,
+    &:disabled {
+      background-color: map-get($wdl-button, button-disabled);
+      color: map-get($wdl-text, text-disabled);
+      border-color: map-get($wdl-border, border-disabled);
+      cursor: not-allowed;
+    }
+
+    &.wdl-button--skeleton {
+      background-color: map-get($wdl-misc, skeleton-element);
+      color: transparent;
+      border-color: map-get($wdl-misc, skeleton-element);
+      cursor: default;
+      animation: skeleton-pulse 2s ease-in-out infinite;
+      
+      * {
+        visibility: hidden;
+      }
+    }
+  }
+
+  // Danger tertiary
+  &--danger-tertiary {
+    background-color: transparent;
+    color: map-get($wdl-support, support-error);
+
+    &.wdl-button--hover {
+      text-decoration: underline;
+    }
+
+    &.wdl-button--active {
+      color: map-get($wdl-button, button-danger-active);
+    }
+
+    &.wdl-button--focus {
+      box-shadow: 0 0 0 2px map-get($wdl-focus, focus);
+      outline: none;
+    }
+
+    &.wdl-button--loading {
+      cursor: wait;
+    }
+
+    &.wdl-button--disabled,
+    &:disabled {
+      color: map-get($wdl-text, text-disabled);
+      cursor: not-allowed;
+    }
+
+    &.wdl-button--skeleton {
+      color: transparent;
+      cursor: default;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: map-get($wdl-misc, skeleton-element);
+        animation: skeleton-pulse 2s ease-in-out infinite;
+      }
+      
+      * {
+        visibility: hidden;
+      }
+    }
+  }
+
+  // Typography
+  @extend .wdl-heading-06-medium-sentencecase;
+
+  @keyframes skeleton-pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+}

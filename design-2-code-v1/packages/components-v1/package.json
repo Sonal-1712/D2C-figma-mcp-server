@@ -1,0 +1,36 @@
+{
+  "name": "@design-2-code/components-v1",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src/**/*.{ts,tsx}",
+    "lint:fix": "eslint src/**/*.{ts,tsx} --fix",
+    "test": "jest"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@design-2-code/design-system-v1": "workspace:*"
+  },
+  "devDependencies": {
+    "@storybook/react": "^7.0.0",
+    "@storybook/blocks": "^7.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "esbuild-sass-plugin": "^2.16.0",
+    "sass": "^1.69.0",
+    "postcss": "^8.4.31",
+    "tsup": "^7.0.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

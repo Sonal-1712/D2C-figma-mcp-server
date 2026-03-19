@@ -1,0 +1,204 @@
+// Breadcrumb.scss
+@import '../../../design-system-v1/src/scss/colors.scss';
+@import '../../../design-system-v1/src/scss/typography.scss';
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  
+  // Base container
+  &__container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    padding: 16px 0;
+    z-index: 1;
+  }
+
+  // Breadcrumb list
+  &__list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  // Breadcrumb item
+  &__item {
+    display: flex;
+    align-items: center;
+  }
+
+  // Breadcrumb separator (chevron icon)
+  &__separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 4px;
+    color: currentColor;
+  }
+
+  // Breadcrumb link
+  &__link {
+    text-decoration: none;
+    cursor: pointer;
+    @extend .wdl-heading-12;
+    color: map-get($wdl-link, link-primary);
+    
+    &:hover {
+      color: map-get($wdl-link, link-primary-hover);
+      text-decoration: underline;
+    }
+  }
+
+  // Current page label
+  &__current {
+    @extend .wdl-heading-13;
+    color: map-get($wdl-text, text-secondary);
+  }
+
+  // Back link
+  &__back-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    @extend .wdl-heading-12;
+    color: map-get($wdl-link, link-primary);
+    
+    &:hover {
+      color: map-get($wdl-link, link-primary-hover);
+      text-decoration: underline;
+    }
+  }
+
+  // Icon wrapper
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 4px;
+  }
+
+  // Back link text
+  &__text {
+    @extend .wdl-heading-12;
+  }
+
+  // Overflow menu button for mobile
+  &__overflow-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-right: 4px;
+    cursor: pointer;
+    color: currentColor;
+  }
+
+  // Breakpoint variations
+  &--desktop {
+    max-width: 1312px;
+
+    .breadcrumb__container {
+      padding: 16px 0;
+    }
+  }
+
+  &--mobile {
+    .breadcrumb__container {
+      padding: 8px 0;
+    }
+  }
+
+  // Theme variations
+  &--default {
+    color: map-get($wdl-text, text-primary);
+    
+    .breadcrumb__current {
+      color: map-get($wdl-text, text-secondary);
+    }
+    
+    .breadcrumb__link,
+    .breadcrumb__back-link {
+      color: map-get($wdl-link, link-primary);
+      
+      &:hover {
+        color: map-get($wdl-link, link-primary-hover);
+      }
+    }
+    
+    .breadcrumb__separator {
+      color: map-get($wdl-icon, icon-primary);
+    }
+    
+    .breadcrumb__overflow-menu {
+      color: map-get($wdl-icon, icon-secondary);
+    }
+  }
+
+  &--inverse-green {
+    color: map-get($wdl-text, text-inverse);
+    
+    .breadcrumb__current {
+      color: map-get($wdl-text, text-inverse-secondary-01);
+    }
+    
+    .breadcrumb__link,
+    .breadcrumb__back-link {
+      color: map-get($wdl-link, link-inverse);
+      
+      &:hover {
+        color: map-get($wdl-link, link-inverse-hover);
+      }
+    }
+    
+    .breadcrumb__separator {
+      color: map-get($wdl-icon, icon-inverse);
+    }
+    
+    .breadcrumb__overflow-menu {
+      color: map-get($wdl-icon, icon-inverse-secondary-01);
+    }
+  }
+
+  &--inverse-purple {
+    color: map-get($wdl-text, text-inverse);
+    
+    .breadcrumb__current {
+      color: map-get($wdl-text, text-inverse-secondary-02);
+    }
+    
+    .breadcrumb__link,
+    .breadcrumb__back-link {
+      color: map-get($wdl-link, link-inverse);
+      
+      &:hover {
+        color: map-get($wdl-link, link-inverse-hover);
+      }
+    }
+    
+    .breadcrumb__separator {
+      color: map-get($wdl-icon, icon-inverse);
+    }
+    
+    .breadcrumb__overflow-menu {
+      color: map-get($wdl-icon, icon-inverse-secondary-02);
+    }
+  }
+
+  // Type variations
+  &--breadcrumbs {
+    // Styling specific to breadcrumbs type
+  }
+
+  &--back {
+    // Styling specific to back button type
+  }
+}

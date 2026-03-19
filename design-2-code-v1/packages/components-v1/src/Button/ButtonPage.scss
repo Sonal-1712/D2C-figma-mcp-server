@@ -1,0 +1,83 @@
+// ButtonPage.scss
+@import '../../../design-system-v1/src/scss/colors.scss';
+@import '../../../design-system-v1/src/scss/typography.scss';
+
+.button-page {
+  padding: 32px;
+  font-family: map-get($wdl-fonts, gotham);
+  max-width: 1200px;
+  margin: 0 auto;
+
+  &__title {
+    @extend .wdl-heading-02;
+    margin-bottom: 32px;
+    color: map-get($wdl-text, text-primary);
+  }
+
+  &__section {
+    margin-bottom: 48px;
+  }
+
+  &__heading {
+    @extend .wdl-heading-05;
+    margin-bottom: 16px;
+    color: map-get($wdl-text, text-primary);
+  }
+
+  &__group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 160px;
+    padding: 16px;
+    border-radius: 8px;
+    background-color: map-get($wdl-layer, layer-01);
+    
+    &--dark {
+      background-color: map-get($wdl-misc, highlight-brand-01);
+      color: map-get($wdl-text, text-on-colour);
+
+      .button-page__label {
+        color: map-get($wdl-text, text-on-colour);
+      }
+    }
+
+    &--inverse {
+      background-color: map-get($wdl-background, background-inverse-01);
+      color: map-get($wdl-text, text-on-colour);
+
+      .button-page__label {
+        color: map-get($wdl-text, text-on-colour);
+      }
+    }
+  }
+
+  &__label {
+    margin-top: 16px;
+    color: map-get($wdl-text, text-secondary);
+    @extend .wdl-label-02;
+  }
+
+  &__icon {
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  &__button-small {
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    min-width: 80px;
+  }
+
+  &__button-large {
+    font-size: 1.125rem;
+    padding: 12px 24px;
+    min-width: 120px;
+  }
+}

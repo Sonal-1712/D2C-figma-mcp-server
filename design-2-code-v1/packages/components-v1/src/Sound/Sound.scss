@@ -1,0 +1,36 @@
+// Sound.scss
+@use "../../design-system-v1/src/scss/colors" as *;
+@use "../../design-system-v1/src/scss/tokens" as *;
+
+.wdl-sound {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__icon-base {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    display: block;
+  }
+
+  &__vector-container {
+    position: absolute;
+    
+    // Sound off icon has inset of 12.5%
+    // Sound on icon has inset of 13.46% 12.5%
+    inset: 12.5%;
+  }
+
+  &__vector {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    display: block;
+  }
+}

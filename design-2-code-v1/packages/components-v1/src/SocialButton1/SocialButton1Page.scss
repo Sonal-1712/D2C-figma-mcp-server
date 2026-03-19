@@ -1,0 +1,165 @@
+// SocialButton1Page.scss
+@import '../../../design-system-v1/src/scss/colors.scss';
+@import '../../../design-system-v1/src/scss/typography.scss';
+
+.social-button1-page {
+  padding: 24px;
+  font-family: map-get($wdl-fonts, gotham);
+
+  &__title {
+    @extend .wdl-heading-03-medium-sentencecase;
+    margin-bottom: 32px;
+    color: map-get($wdl-text, text-primary);
+  }
+
+  &__heading {
+    @extend .wdl-heading-05-medium-sentencecase;
+    margin-bottom: 16px;
+    color: map-get($wdl-text, text-primary);
+  }
+
+  &__section {
+    margin-bottom: 48px;
+  }
+
+  &__group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 200px;
+  }
+
+  &__label {
+    @extend .wdl-paragraph-01-regular;
+    color: map-get($wdl-text, text-secondary);
+    margin-top: 8px;
+  }
+
+  &__responsive-demo {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__responsive-container {
+    width: 100%;
+    max-width: 600px;
+    resize: horizontal;
+    overflow: auto;
+    padding: 16px;
+    border: 1px dashed map-get($wdl-border, border-strong);
+    border-radius: 8px;
+  }
+
+  // Form styling for integration example
+  &__integration-example {
+    max-width: 400px;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid map-get($wdl-border, border-strong);
+    background-color: map-get($wdl-background, background-white);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    h3 {
+      @extend .wdl-heading-06-medium-sentencecase;
+      color: map-get($wdl-text, text-primary);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__form-row {
+    width: 100%;
+  }
+
+  &__separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: map-get($wdl-text, text-secondary);
+    @extend .wdl-paragraph-02-regular;
+
+    &::before,
+    &::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid map-get($wdl-border, border-strong);
+    }
+
+    &::before {
+      margin-right: 16px;
+    }
+
+    &::after {
+      margin-left: 16px;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    height: 44px;
+    border: 1px solid map-get($wdl-border, border-strong);
+    border-radius: 8px;
+    padding: 0 16px;
+    font-family: map-get($wdl-fonts, gotham);
+    @extend .wdl-paragraph-01-regular;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+      border-color: map-get($wdl-focus, focus);
+      box-shadow: 0 0 0 2px rgba(15, 98, 254, 0.3);
+    }
+
+    &::placeholder {
+      color: map-get($wdl-text, text-placeholder);
+    }
+  }
+
+  &__submit-button {
+    width: 100%;
+    height: 44px;
+    background-color: map-get($wdl-button, button-primary);
+    color: map-get($wdl-text, text-on-colour);
+    border: none;
+    border-radius: 8px;
+    font-family: map-get($wdl-fonts, gotham);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+
+    &:hover {
+      background-color: map-get($wdl-button, button-primary-hover);
+    }
+
+    &:active {
+      background-color: map-get($wdl-button, button-primary-active);
+    }
+  }
+
+  // Dark theme section
+  &__item--dark {
+    padding: 16px;
+    background-color: map-get($design-2-code-green, base);
+    border-radius: 8px;
+  }
+
+  // Inverse theme section
+  &__item--inverse {
+    padding: 16px;
+    background-color: map-get($score-green, base);
+    border-radius: 8px;
+  }
+}

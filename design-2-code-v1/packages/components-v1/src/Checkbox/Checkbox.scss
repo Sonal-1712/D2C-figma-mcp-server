@@ -1,0 +1,204 @@
+// Checkbox.scss
+@import "../../../design-system-v1/src/scss/colors.scss";
+@import "../../../design-system-v1/src/scss/tokens.scss";
+@import "../../../design-system-v1/src/scss/typography.scss";
+
+.checkbox {
+  width: 375px;
+  position: relative;
+  display: flex;
+  padding: 0;
+
+  &.default, &.error {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
+  &.selected, &.disabled {
+    align-items: center;
+    border-radius: 8px;
+  }
+
+  &.focus {
+    align-items: center;
+    border: 4px solid map-get($wdl-focus, focus);
+  }
+
+  .checkbox-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 16px;
+    width: 100%;
+
+    &.default, &.error {
+      flex-shrink: 0;
+      width: 100%;
+    }
+
+    &.selected, &.disabled, &.focus {
+      flex: 1 0 0;
+      min-height: 1px;
+      min-width: 1px;
+    }
+
+    &.focus {
+      border: 2px solid map-get($wdl-focus, focus-inset);
+    }
+  }
+
+  .checkbox-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  .checkbox-icon-text {
+    position: relative;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  .checkbox-icon {
+    position: relative;
+    display: flex;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+    padding: 1px 0;
+    flex-shrink: 0;
+  }
+
+  .checkbox-icon-empty, .checkbox-icon-filled {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+
+    &-inner {
+      position: absolute;
+      inset: 12.5%;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 1px solid map-get($wdl-icon, icon-primary);
+        border-radius: 2px;
+      }
+    }
+  }
+
+  &.selected {
+    .checkbox-icon-filled-inner {
+      &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: map-get($wdl-icon, icon-interactive-1);
+        border-radius: 2px;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 60%;
+        height: 40%;
+        border-right: 2px solid map-get($wdl-text, text-on-colour);
+        border-bottom: 2px solid map-get($wdl-text, text-on-colour);
+        transform: rotate(45deg);
+        left: 20%;
+        top: 20%;
+      }
+    }
+  }
+
+  &.disabled {
+    .checkbox-icon-filled-inner {
+      &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: map-get($wdl-icon, icon-disabled);
+        border-radius: 2px;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 60%;
+        height: 40%;
+        border-right: 2px solid map-get($wdl-text, text-disabled);
+        border-bottom: 2px solid map-get($wdl-text, text-disabled);
+        transform: rotate(45deg);
+        left: 20%;
+        top: 20%;
+      }
+    }
+  }
+
+  .checkbox-label {
+    flex: 1 0 0;
+    font-family: map-get($wdl-fonts, gotham);
+    font-weight: map-get($wdl-weights, book);
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: -0.03em;
+    min-height: 1px;
+    min-width: 1px;
+    position: relative;
+    color: map-get($wdl-text, text-secondary-dark);
+
+    &.disabled {
+      color: map-get($wdl-text, text-disabled);
+    }
+  }
+
+  .checkbox-error-text {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 28px;
+    width: 100%;
+    flex-shrink: 0;
+
+    p {
+      flex: 1 0 0;
+      font-family: map-get($wdl-fonts, gotham);
+      font-weight: map-get($wdl-weights, book);
+      font-size: 12px;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      min-height: 1px;
+      min-width: 1px;
+      position: relative;
+      color: map-get($wdl-text, text-error);
+    }
+  }
+
+  a {
+    text-decoration: underline;
+    font-family: map-get($wdl-fonts, gotham);
+    font-weight: map-get($wdl-weights, medium);
+    color: #063;
+  }
+
+  &.disabled a {
+    color: map-get($wdl-text, text-disabled);
+    text-decoration: underline;
+  }
+}

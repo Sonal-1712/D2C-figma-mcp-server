@@ -1,0 +1,102 @@
+// Form.scss
+@import '../../../design-system-v1/src/scss/colors.scss';
+@import '../../../design-system-v1/src/scss/typography.scss';
+@import '../../../design-system-v1/src/scss/tokens.scss';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: map-get($wdl-field, field);
+  padding: map-get($wdl-spacing, spacing-07) map-get($wdl-spacing, spacing-09);
+  width: 100%;
+  height: 100%;
+
+  &__heading {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1 0 0;
+    width: 100%;
+  }
+
+  &__form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: map-get($wdl-spacing, spacing-09);
+    width: 100%;
+  }
+
+  &__input-field {
+    width: 100%;
+    margin-bottom: map-get($wdl-spacing, spacing-05);
+  }
+
+  &__input-fields {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__password-forgot {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    width: 100%;
+    padding-top: map-get($wdl-spacing, spacing-03);
+
+    a {
+      font-family: map-get($wdl-fonts, gotham);
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 1.2;
+      text-decoration: underline;
+      color: map-get($wdl-link, link-primary);
+    }
+  }
+
+  &__checkbox {
+    margin-bottom: map-get($wdl-spacing, spacing-05);
+  }
+
+  &__button-group {
+    display: flex;
+    flex-direction: column;
+    gap: map-get($wdl-spacing, spacing-03);
+    width: 100%;
+  }
+
+  &__recaptcha-text {
+    font-family: map-get($wdl-fonts, gotham);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.2;
+    color: map-get($wdl-text, text-secondary);
+    margin-bottom: map-get($wdl-spacing, spacing-03);
+    width: 100%;
+
+    a {
+      font-weight: 500;
+      text-decoration: underline;
+      color: map-get($wdl-link, link-primary);
+    }
+  }
+
+  &__social-buttons {
+    margin-bottom: map-get($wdl-spacing, spacing-03);
+    width: 100%;
+  }
+
+  &__button {
+    margin-bottom: map-get($wdl-spacing, spacing-03);
+    width: 100%;
+  }
+}

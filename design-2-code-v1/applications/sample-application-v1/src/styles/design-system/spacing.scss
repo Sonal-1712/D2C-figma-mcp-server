@@ -1,0 +1,86 @@
+/**
+* Wimbledon Design Language — Spacing SCSS
+ * File: wdl_spacing.scss
+ *
+ * This file provides WDL spacing tokens for the Wimbledon Design Language
+ */
+
+@use "sass:map"; // Import sass:map module for map.get function
+
+/* -----------------------------------------------------------------------------
+ * WDL Spacing Variables
+ * ---------------------------------------------------------------------------*/
+
+// Define spacing variables directly instead of importing from Carbon
+$spacing-01: 0.25rem;  // 4px
+$spacing-02: 0.5rem;   // 8px 
+$spacing-03: 1rem;     // 16px
+$spacing-04: 1.5rem;   // 24px
+$spacing-05: 2rem;     // 32px
+$spacing-06: 3rem;     // 48px
+
+// Map WDL spacing tokens to the spacing values
+$wdl-spacing: (
+  spacing-xs: $spacing-01,  // 0.25rem / 4px
+  spacing-sm: $spacing-02,  // 0.5rem / 8px 
+  spacing-md: $spacing-03,  // 1rem / 16px
+  spacing-lg: $spacing-04,  // 1.5rem / 24px
+  spacing-xl: $spacing-05,  // 2rem / 32px
+  spacing-xxl: $spacing-06, // 3rem / 48px
+  
+  // Additional spacing values based on standard 8px grid system
+  spacing-2xs: 0.125rem,    // 2px
+  spacing-3xs: 0.0625rem,   // 1px
+  spacing-3xl: 4rem,        // 64px
+  spacing-4xl: 6rem,        // 96px
+  spacing-5xl: 8rem         // 128px
+);
+
+/* -----------------------------------------------------------------------------
+ * Spacing Utility Functions
+ * ---------------------------------------------------------------------------*/
+
+@function spacing($key) {
+  @return map-get($wdl-spacing, $key);
+}
+
+// Add map-get function for use in other files
+@function map-get($map, $key) {
+  @return map.get($map, $key);
+}
+
+/* -----------------------------------------------------------------------------
+ * Layout Spacing Constants
+ * ---------------------------------------------------------------------------*/
+
+// Standard paddings
+$padding-container: spacing(spacing-lg);
+$padding-card: spacing(spacing-md);
+$padding-content: spacing(spacing-md);
+
+// Standard margins
+$margin-section: spacing(spacing-xl);
+$margin-component: spacing(spacing-md);
+$margin-element: spacing(spacing-sm);
+
+// Standard gaps
+$gap-grid: spacing(spacing-md);
+$gap-form: spacing(spacing-md);
+$gap-item: spacing(spacing-sm);
+
+/* -----------------------------------------------------------------------------
+ * Z-index Scale
+ * ---------------------------------------------------------------------------*/
+
+$z-index: (
+  base: 0,
+  above: 1,
+  dropdown: 100,
+  sticky: 200,
+  fixed: 300,
+  modal: 400,
+  popover: 500,
+  tooltip: 600,
+  toast: 700,
+  max: 9999
+);

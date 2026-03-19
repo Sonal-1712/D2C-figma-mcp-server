@@ -1,0 +1,100 @@
+// NavigationHeaderPage.scss
+@import "../../../design-system-v1/src/scss/colors.scss";
+@import "../../../design-system-v1/src/scss/typography.scss";
+@import "../../../design-system-v1/src/scss/tokens.scss";
+
+.navigation-header-page {
+  padding: 24px;
+  
+  &__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  
+  &__control {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    
+    label {
+      @extend .wdl-body-03;
+      font-weight: map-get($wdl-weights, medium);
+      color: map-get($wdl-text, text-primary);
+    }
+    
+    select {
+      padding: 8px 12px;
+      min-width: 200px;
+      border: 1px solid map-get($wdl-border, border-strong);
+      border-radius: 4px;
+      background-color: map-get($wdl-field, field);
+      font-family: map-get($wdl-fonts, gotham);
+      color: map-get($wdl-text, text-primary);
+      
+      &:focus {
+        outline: 2px solid map-get($wdl-focus, focus);
+        outline-offset: 2px;
+      }
+    }
+  }
+  
+  &__preview {
+    width: 100%;
+    border: 1px solid map-get($wdl-border, border-strong);
+    margin-bottom: 32px;
+    background-color: map-get($wdl-layer, layer-01);
+    overflow: hidden;
+    
+    &--dark {
+      background-color: map-get($wdl-background, background-inverse-01);
+    }
+    
+    &-content {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+  
+  &__section {
+    margin-bottom: 40px;
+    
+    h2 {
+      @extend .wdl-heading-04;
+      margin-bottom: 16px;
+      color: map-get($wdl-text, text-primary);
+    }
+    
+    h3 {
+      @extend .wdl-heading-06;
+      margin-top: 24px;
+      margin-bottom: 12px;
+      color: map-get($wdl-text, text-primary);
+    }
+    
+    p {
+      @extend .wdl-body-02;
+      margin-bottom: 16px;
+      color: map-get($wdl-text, text-secondary);
+      max-width: 800px;
+    }
+    
+    ul {
+      @extend .wdl-body-02;
+      margin-bottom: 16px;
+      margin-left: 20px;
+      color: map-get($wdl-text, text-secondary);
+      max-width: 800px;
+      
+      li {
+        margin-bottom: 8px;
+      }
+      
+      strong {
+        font-weight: map-get($wdl-weights, medium);
+      }
+    }
+  }
+}

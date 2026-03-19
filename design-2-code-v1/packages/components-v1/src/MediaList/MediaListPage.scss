@@ -1,0 +1,55 @@
+// MediaListPage.scss
+@import '../../../design-system-v1/src/scss/colors.scss';
+@import '../../../design-system-v1/src/scss/typography.scss';
+@import '../../../design-system-v1/src/scss/tokens.scss';
+
+.media-list-page {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  h1 {
+    @extend .wdl-heading-02;
+    margin-bottom: 24px;
+    color: map-get($wdl-text, text-primary);
+  }
+  
+  .component-section {
+    margin-bottom: 40px;
+    
+    h2 {
+      @extend .wdl-heading-04;
+      margin-bottom: 16px;
+      color: map-get($wdl-text, text-primary);
+    }
+    
+    p {
+      @extend .wdl-body-02;
+      margin-bottom: 16px;
+      color: map-get($wdl-text, text-secondary);
+    }
+    
+    .component-example {
+      margin-bottom: 24px;
+      border: 1px solid map-get($wdl-border, border-light);
+      border-radius: 8px;
+      padding: 16px;
+      background-color: map-get($wdl-layer, layer-01);
+      
+      h3 {
+        @extend .wdl-heading-05;
+        margin-bottom: 12px;
+        color: map-get($wdl-text, text-secondary);
+      }
+      
+      .media-tile-item {
+        border: 1px solid map-get($wdl-border, border-strong);
+        margin-bottom: 8px;
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

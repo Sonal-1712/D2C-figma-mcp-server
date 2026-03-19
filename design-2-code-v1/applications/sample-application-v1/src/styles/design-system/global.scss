@@ -1,0 +1,359 @@
+/**
+ * Wimbledon Design Language — Main SCSS Entry Point
+ * File: wdl-design-system.scss
+ * 
+ * This is the main entry point for the Wimbledon Design Language SCSS system.
+ * It imports all WDL components and integrates them with Carbon Design System.
+ * 
+ * Usage:
+ * @import 'path/to/wdl-design-system.scss';
+ */
+
+/* -----------------------------------------------------------------------------
+ * Import Carbon Design System
+ * ---------------------------------------------------------------------------*/
+
+// Import Carbon Design System core styles
+// @import '@carbon/react/scss/styles';
+// Import Carbon Design System core styles
+// ✅ Use legacy Carbon v10 mixins and tokens
+
+@import 'carbon-components/scss/globals/scss/vars';
+@import 'carbon-components/scss/globals/scss/mixins';
+@import 'carbon-components/scss/globals/scss/functions';
+@import 'carbon-components/scss/globals/scss/typography';
+@import 'carbon-components/scss/globals/scss/layout';
+@import 'carbon-components/scss/globals/scss/colors';
+
+
+
+/* -----------------------------------------------------------------------------
+ * Import WDL Components
+ * ---------------------------------------------------------------------------*/
+
+// Import WDL typography system
+@import './colors.scss';
+
+// Import WDL color system
+@import './tokens.scss';
+
+// Import WDL token system
+@import './typography.scss';
+
+/* -----------------------------------------------------------------------------
+ * WDL Design System Integration
+ * ---------------------------------------------------------------------------*/
+
+/**
+ * WDL Design System provides a comprehensive set of design tokens and utilities
+ * that work alongside Carbon Design System. This system includes:
+ * 
+ * 1. Typography: Complete typography scale with Gotham and Caslon fonts
+ * 2. Colors: Full color palette including brand colors and semantic tokens
+ * 3. Tokens: Semantic UI tokens for consistent design implementation
+ * 4. Utilities: Helper classes for common design patterns
+ * 
+ * The system is designed to be used alongside Carbon components, providing
+ * Wimbledon-specific branding and design language while maintaining Carbon's
+ * accessibility and interaction patterns.
+ */
+
+/* -----------------------------------------------------------------------------
+ * WDL Component Mixins
+ * ---------------------------------------------------------------------------*/
+
+// Mixin for applying WDL typography to Carbon components
+@mixin wdl-carbon-typography($typography-class) {
+  @extend .#{$typography-class};
+}
+
+// Mixin for applying WDL colors to Carbon components
+@mixin wdl-carbon-colors($color-map) {
+  @each $property, $value in $color-map {
+    #{$property}: $value;
+  }
+}
+
+// Mixin for WDL button variants that extend Carbon buttons
+@mixin wdl-button-variant($variant) {
+  @if $variant == 'wimbledon-primary' {
+    @extend .wdl-button-primary;
+  } @else if $variant == 'wimbledon-secondary' {
+    @extend .wdl-button-secondary;
+  } @else if $variant == 'wimbledon-tertiary' {
+    @extend .wdl-button-tertiary;
+  } @else if $variant == 'wimbledon-danger' {
+    @extend .wdl-button-danger;
+  }
+}
+
+// Mixin for WDL text variants
+@mixin wdl-text-variant($variant) {
+  @if $variant == 'brand-01' {
+    @extend .wdl-text-brand-01;
+  } @else if $variant == 'brand-02' {
+    @extend .wdl-text-brand-02;
+  } @else if $variant == 'brand-03' {
+    @extend .wdl-text-brand-03;
+  } @else if $variant == 'primary' {
+    @extend .wdl-text-primary;
+  } @else if $variant == 'secondary' {
+    @extend .wdl-text-secondary;
+  } @else if $variant == 'inverse' {
+    @extend .wdl-text-inverse;
+  } @else if $variant == 'highlight' {
+    @extend .wdl-text-highlight;
+  }
+}
+
+// Mixin for WDL background variants
+@mixin wdl-background-variant($variant) {
+  @if $variant == 'brand-01' {
+    @extend .wdl-bg-brand-01;
+  } @else if $variant == 'brand-02' {
+    @extend .wdl-bg-brand-02;
+  } @else if $variant == 'inverse-01' {
+    @extend .wdl-bg-inverse-01;
+  } @else if $variant == 'inverse-02' {
+    @extend .wdl-bg-inverse-02;
+  } @else if $variant == 'grey' {
+    @extend .wdl-bg-grey;
+  } @else if $variant == 'white' {
+    @extend .wdl-bg-white;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * WDL Carbon Component Extensions
+ * ---------------------------------------------------------------------------*/
+
+// Extend Carbon Button component with WDL variants
+.cds--btn--wdl-primary {
+  @extend .wdl-button-primary;
+}
+
+.cds--btn--wdl-secondary {
+  @extend .wdl-button-secondary;
+}
+
+.cds--btn--wdl-tertiary {
+  @extend .wdl-button-tertiary;
+}
+
+.cds--btn--wdl-danger {
+  @extend .wdl-button-danger;
+}
+
+// Extend Carbon Text components with WDL typography
+.cds--text--wdl-heading-01 {
+  @extend .wdl-heading-01;
+}
+
+.cds--text--wdl-heading-02 {
+  @extend .wdl-heading-02;
+}
+
+.cds--text--wdl-heading-03 {
+  @extend .wdl-heading-03;
+}
+
+.cds--text--wdl-body-01 {
+  @extend .wdl-body-01;
+}
+
+.cds--text--wdl-body-02 {
+  @extend .wdl-body-02;
+}
+
+.cds--text--wdl-label-01 {
+  @extend .wdl-label-01;
+}
+
+.cds--text--wdl-label-02 {
+  @extend .wdl-label-02;
+}
+
+// Extend Carbon Link components with WDL variants
+.cds--link--wdl-primary {
+  @extend .wdl-link-primary;
+}
+
+.cds--link--wdl-inverse {
+  @extend .wdl-link-inverse;
+}
+
+// Extend Carbon Tag components with WDL variants
+.cds--tag--wdl-brand-green {
+  @extend .wdl-brand-tag-green;
+}
+
+.cds--tag--wdl-brand-purple {
+  @extend .wdl-brand-tag-purple;
+}
+
+.cds--tag--wdl-brand-gold {
+  @extend .wdl-brand-tag-gold;
+}
+
+.cds--tag--wdl-support-blue {
+  @extend .wdl-support-tag-blue;
+}
+
+.cds--tag--wdl-support-green {
+  @extend .wdl-support-tag-green;
+}
+
+.cds--tag--wdl-support-red {
+  @extend .wdl-support-tag-red;
+}
+
+.cds--tag--wdl-support-yellow {
+  @extend .wdl-support-tag-yellow;
+}
+
+/* -----------------------------------------------------------------------------
+ * WDL Layout Utilities
+ * ---------------------------------------------------------------------------*/
+
+// WDL spacing utilities that work with Carbon's spacing system
+.wdl-spacing-xs { margin: $spacing-01; }
+.wdl-spacing-sm { margin: $spacing-02; }
+.wdl-spacing-md { margin: $spacing-03; }
+.wdl-spacing-lg { margin: $spacing-04; }
+.wdl-spacing-xl { margin: $spacing-05; }
+.wdl-spacing-xxl { margin: $spacing-06; }
+
+.wdl-padding-xs { padding: $spacing-01; }
+.wdl-padding-sm { padding: $spacing-02; }
+.wdl-padding-md { padding: $spacing-03; }
+.wdl-padding-lg { padding: $spacing-04; }
+.wdl-padding-xl { padding: $spacing-05; }
+.wdl-padding-xxl { padding: $spacing-06; }
+
+// WDL border utilities
+.wdl-border-light { border: 1px solid var(--wdl-border-light); }
+.wdl-border-strong { border: 1px solid var(--wdl-border-strong); }
+.wdl-border-brand-01 { border: 1px solid var(--wdl-border-brand-01); }
+.wdl-border-brand-02 { border: 1px solid var(--wdl-border-brand-02); }
+
+// WDL shadow utilities
+.wdl-shadow-sm { box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); }
+.wdl-shadow-md { box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+.wdl-shadow-lg { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+
+/* -----------------------------------------------------------------------------
+ * WDL Responsive Utilities
+ * ---------------------------------------------------------------------------*/
+
+// WDL responsive typography utilities
+@include carbon--breakpoint-down(md) {
+  .wdl-heading-01 {
+    font-size: pt-to-rem(32) + rem;
+  }
+  
+  .wdl-heading-02 {
+    font-size: pt-to-rem(24) + rem;
+  }
+  
+  .wdl-display-140-caps {
+    font-size: pt-to-rem(88) + rem;
+  }
+  
+  .wdl-display-88-caps {
+    font-size: pt-to-rem(56) + rem;
+  }
+}
+
+@include carbon--breakpoint-down(sm) {
+  .wdl-heading-01 {
+    font-size: pt-to-rem(28) + rem;
+  }
+  
+  .wdl-heading-02 {
+    font-size: pt-to-rem(20) + rem;
+  }
+  
+  .wdl-display-140-caps {
+    font-size: pt-to-rem(64) + rem;
+  }
+  
+  .wdl-display-88-caps {
+    font-size: pt-to-rem(40) + rem;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * WDL Accessibility Enhancements
+ * ---------------------------------------------------------------------------*/
+
+// Enhanced focus styles for WDL components
+.wdl-focus-enhanced {
+  &:focus {
+    outline: 2px solid var(--wdl-focus);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(15, 98, 254, 0.2);
+  }
+  
+  &:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .wdl-text-primary {
+    color: #000000;
+  }
+  
+  .wdl-text-secondary {
+    color: #333333;
+  }
+  
+  .wdl-border-light {
+    border-color: #666666;
+  }
+  
+  .wdl-border-strong {
+    border-color: #000000;
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .wdl-button-primary,
+  .wdl-button-secondary,
+  .wdl-button-tertiary,
+  .wdl-button-danger {
+    transition: none;
+  }
+  
+  .wdl-link-primary,
+  .wdl-link-inverse {
+    transition: none;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * WDL Print Styles
+ * ---------------------------------------------------------------------------*/
+
+@media print {
+  .wdl-bg-brand-01,
+  .wdl-bg-brand-02,
+  .wdl-bg-inverse-01,
+  .wdl-bg-inverse-02 {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+  
+  .wdl-text-inverse,
+  .wdl-text-on-colour {
+    color: #000000 !important;
+  }
+  
+  .wdl-border-brand-01,
+  .wdl-border-brand-02 {
+    border-color: #000000 !important;
+  }
+}

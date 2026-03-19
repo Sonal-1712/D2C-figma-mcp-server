@@ -1,0 +1,33 @@
+// CheckboxPage.scss
+@import "../../../design-system-v1/src/scss/colors.scss";
+@import "../../../design-system-v1/src/scss/tokens.scss";
+@import "../../../design-system-v1/src/scss/typography.scss";
+
+.checkbox-page {
+  padding: 24px;
+  
+  h1 {
+    @extend .wdl-heading-01;
+    margin-bottom: 16px;
+    color: map-get($wdl-text, text-primary);
+  }
+  
+  h2 {
+    @extend .wdl-heading-04;
+    margin: 24px 0 16px;
+    color: map-get($wdl-text, text-primary);
+  }
+  
+  p {
+    @extend .wdl-body-02;
+    margin-bottom: 16px;
+    color: map-get($wdl-text, text-secondary);
+  }
+  
+  .example {
+    margin-bottom: 16px;
+    padding: 16px;
+    border: 1px solid map-get($wdl-border, border-light);
+    border-radius: 8px;
+  }
+}

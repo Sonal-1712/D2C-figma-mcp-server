@@ -1,0 +1,596 @@
+/**
+ * Wimbledon Design Language — Colors SCSS
+ * File: wdl_colors.scss
+ * 
+ * Converted from wdl_colors.js to SCSS format for better integration
+ * with Carbon Design System and SCSS workflows.
+ * 
+ * This file provides WDL color palettes and semantic tokens that work
+ * alongside Carbon Design System colors.
+ */
+
+@use "sass:map";
+
+/* -----------------------------------------------------------------------------
+ * Import Carbon Design System Colors
+ * ---------------------------------------------------------------------------*/
+
+// Carbon color variables (hardcoded to avoid import issues)
+$cool-gray-10: #f2f4f8;
+$cool-gray-10-hover: #e4e9f1;
+$cool-gray-20: #dde1e6;
+$cool-gray-20-hover: #cdd3da;
+$cool-gray-30: #c1c7cd;
+$cool-gray-30-hover: #adb5bd;
+$cool-gray-40: #a2a9b0;
+$cool-gray-40-hover: #9199a1;
+$cool-gray-50: #878d96;
+$cool-gray-50-hover: #757b85;
+$cool-gray-60: #697077;
+$cool-gray-70: #4d5358;
+$cool-gray-70-hover: #5d646a;
+$cool-gray-80: #343a3f;
+$cool-gray-80-hover: #434a51;
+$cool-gray-90-hover: #2b3236;
+$cool-gray-100: #121619;
+$cool-gray-100-hover: #222a2f;
+$black-hover: #212121;
+$white: #ffffff;
+
+// Carbon support colors
+$blue-10: #edf5ff;
+$blue-20: #d0e2ff;
+$blue-50: #0f62fe;
+$blue-60: #0f62fe;
+$blue-70: #0043ce;
+$red-10: #fff1f1;
+$red-20: #ffd7d9;
+$red-50: #ff8389;
+$red-60: #da1e28;
+$red-70: #b81922;
+$red-80: #a2191f;
+$green-10: #defbe6;
+$green-20: #a7f0ba;
+$green-40: #42be65;
+$green-50: #24a148;
+$green-60: #198038;
+$green-70: #0e6027;
+$yellow-10: #fcf4d6;
+$yellow-20: #fddc69;
+$yellow-30: #f1c21b;
+$yellow-70: #b28600;
+$orange-40: #ff832b;
+$purple-60: #8a3ffc;
+
+/* -----------------------------------------------------------------------------
+ * WDL Color Palettes
+ * ---------------------------------------------------------------------------*/
+
+// WDL Neutrals (Grey 05–95)
+// Aliased to existing Carbon coolGray values for consistency
+$wdl-grey: (
+  5: $cool-gray-10,         // #f2f4f8
+  10: $cool-gray-10-hover,  // #e4e9f1
+  15: $cool-gray-20,        // #dde1e6
+  20: $cool-gray-20-hover,  // #cdd3da
+  25: $cool-gray-30,        // #c1c7cd
+  30: $cool-gray-30-hover,  // #adb5bd
+  35: $cool-gray-40,        // #a2a9b0
+  40: $cool-gray-40-hover,  // #9199a1
+  45: $cool-gray-50,        // #878d96
+  50: $cool-gray-50-hover,  // #757b85
+  55: $cool-gray-60,        // #697077
+  60: $cool-gray-70-hover, // #5d646a
+  65: $cool-gray-70,        // #4d5358
+  70: $cool-gray-80-hover, // #434a51
+  75: $cool-gray-80,        // #343a3f
+  80: $cool-gray-90-hover, // #2b3236
+  85: $cool-gray-100-hover, // #222a2f
+  90: $black-hover,         // #212121
+  95: $cool-gray-100        // #121619
+);
+
+// WDL Primaries — Wimbledon Brand Colors
+$wimbledon-green: (
+  10: #CCE0D6,
+  20: #AACCBB,
+  30: #80B399,
+  40: #559977,
+  50: #2A8055,
+  base: #006633,
+  60: #00552B,
+  70: #004422,
+  80: #00331A,
+  90: #002211,
+  100: #00140A
+);
+
+$wimbledon-purple: (
+  10: #DDCCE6,
+  20: #C6AAD5,
+  30: #AA80C1,
+  40: #8D55AC,
+  50: #712A97,
+  base: #540082,
+  60: #46006C,
+  70: #380057,
+  80: #2A0041,
+  90: #1C002B,
+  100: #11001A
+);
+
+// WDL Secondary Color Families
+$score-green: (
+  10: #CED4D1,
+  20: #AEB8B2,
+  30: #85948B,
+  40: #5C7064,
+  50: #344D3E,
+  base: #0B2917,
+  60: #092213,
+  70: #071B0F,
+  80: #06150C,
+  90: #040E08,
+  100: #020805
+);
+
+$lawn-green: (
+  10: #D3F0E0,
+  20: #B5E5CB,
+  30: #91D9B1,
+  40: #6CCC97,
+  50: #47BF7D,
+  base: #22B263,
+  60: #1C9453,
+  70: #177742,
+  80: #115932,
+  90: #0B3B21,
+  100: #072414
+);
+
+$petunia-purple: (
+  10: #D3CDD6,
+  20: #B6ABBA,
+  30: #928198,
+  40: #6D5775,
+  50: #492D53,
+  base: #240330,
+  60: #1E0328,
+  70: #180220,
+  80: #120218,
+  90: #0C0110,
+  100: #07010A
+);
+
+$violet-purple: (
+  10: #E7CCF9,
+  20: #D7AAF5,
+  30: #C480F0,
+  40: #B055EA,
+  50: #9C2AE5,
+  base: #8800E0,
+  60: #7100BB,
+  70: #5B0095,
+  80: #440070,
+  90: #2D004B,
+  100: #1B002D
+);
+
+$gold: (
+  10: #EBE6DA,
+  20: #DED5C2,
+  30: #CDC0A4,
+  40: #BCAB85,
+  50: #AC9667,
+  base: #9B8148,
+  60: #816C3C,
+  70: #675630,
+  80: #4E4124,
+  90: #342B18,
+  100: #1F1A0E
+);
+
+$champagne: (
+  10: #F9F7F0,
+  20: #F5F2E6,
+  30: #F1ECDA,
+  40: #ECE6CE,
+  50: #E7DFC1,
+  base: #E2D9B5,
+  60: #BCB597,
+  70: #979179,
+  80: #716D5B,
+  90: #4B483C,
+  100: #2D2B24
+);
+
+// WDL Highlight Colors
+$ball-yellow: (
+  10: #FDFFCC,
+  20: #FBFFAA,
+  30: #F9FF80,
+  40: #F7FF55,
+  50: #F5FF2A,
+  base: #F3FF00,
+  60: #CBD500,
+  70: #A2AA00,
+  80: #7A8000,
+  90: #515500,
+  100: #313300
+);
+
+$fresh-green: (
+  10: #F4FAE1,
+  20: #EDF7CE,
+  30: #E5F4B5,
+  40: #DCF09C,
+  50: #D3EC84,
+  base: #CAE86B,
+  60: #A8C159,
+  70: #879B47,
+  80: #657436,
+  90: #434D24,
+  100: #282E15
+);
+
+$floral-pink: (
+  10: #FDE4FE,
+  20: #FCD3FD,
+  30: #FABDFC,
+  40: #F8A6FB,
+  50: #F790FA,
+  base: #F57AF9,
+  60: #CC66D0,
+  70: #A351A6,
+  80: #7B3D7D,
+  90: #522953,
+  100: #311832
+);
+
+$lavender: (
+  10: #F4F0FF,
+  20: #EDE7FF,
+  30: #E4DBFF,
+  40: #DACEFF,
+  50: #D1C2FF,
+  base: #C8B6FF,
+  60: #A798D5,
+  70: #8579AA,
+  80: #645B80,
+  90: #433D55,
+  100: #282433
+);
+
+$silver: (
+  10: #F0EFED,
+  20: #E6E5E2,
+  30: #DAD8D3,
+  40: #CECBC4,
+  50: #C1BEB6,
+  base: #B5B1A7,
+  60: #97948B,
+  70: #79766F,
+  80: #5B5954,
+  90: #3C3B38,
+  100: #242321
+);
+
+/* -----------------------------------------------------------------------------
+ * Utility Functions
+ * ---------------------------------------------------------------------------*/
+
+// Convert hex to rgba with alpha - simplified version
+@function hex-to-rgba($hex, $alpha: 1) {
+  @return rgba($hex, $alpha);
+}
+
+/* -----------------------------------------------------------------------------
+ * Semantic Color Tokens
+ * ---------------------------------------------------------------------------*/
+
+// Background Colors
+$wdl-background: (
+  background-grey: map.get($wdl-grey, 5),                    // Grey 05 (#F2F4F8)
+  background-white: $white,                                  // White (#FFFFFF)
+  background-hover: rgba(135, 141, 150, 0.12),       // #878D96 @ 12%
+  background-active: rgba(135, 141, 150, 0.5),       // #878D96 @ 50%
+  background-selected: rgba(135, 141, 150, 0.2),      // #878D96 @ 20%
+  background-selected-hover: rgba(135, 141, 150, 0.32), // #878D96 @ 32%
+  background-inverse-01: map.get($score-green, base),        // #0B2917
+  background-inverse-01-hover: map.get($wimbledon-green, 80), // #00331A
+  background-inverse-02: map.get($petunia-purple, base),     // #240330
+  background-brand-01: map.get($wimbledon-green, base),     // #006633
+  background-brand-02: map.get($wimbledon-purple, base),     // #540082
+  background-brand-03: map.get($gold, 60),                   // #816C3C
+  background-brand-04: map.get($silver, base)                 // #B5B1A7
+);
+
+// Data Colors
+$wdl-data: (
+  data-background: map.get($lavender, 20),                   // #EDE7FF
+  data-input: map.get($wdl-grey, 95),                       // Grey 95 (#121619)
+  data-highlight: map.get($violet-purple, base),            // #8800E0
+  data-label: map.get($wdl-grey, 55)                        // Grey 55 (#697077)
+);
+
+// Layer Colors
+$wdl-layer: ( 
+  layer-01: $white,
+  layer-02: map.get($wdl-grey, 5),                           // Grey 05 (#F2F4F8)
+  layer-03: $white,
+  layer-hover-01: map.get($wdl-grey, 5),
+  layer-hover-02: map.get($wdl-grey, 5),
+  layer-hover-03: map.get($wdl-grey, 5),
+  layer-active-01: map.get($wdl-grey, 15),                  // Grey 15 (#DDE1E6)
+  layer-active-02: map.get($wdl-grey, 15),
+  layer-active-03: map.get($wdl-grey, 15),
+  layer-selected-01: map.get($wdl-grey, 10),                 // Grey 10 (#E4E9F1)
+  layer-selected-02: map.get($wdl-grey, 10),
+  layer-selected-03: map.get($wdl-grey, 10),
+  layer-selected-hover-01: map.get($wdl-grey, 15),
+  layer-selected-hover-02: map.get($wdl-grey, 15),
+  layer-selected-hover-03: map.get($wdl-grey, 15),
+  layer-selected-inverse: map.get($wdl-grey, 95),           // Grey 95 (#121619)
+  layer-inverse-01: map.get($wimbledon-green, 80),           // #00331A
+  layer-inverse-02: map.get($wimbledon-green, 70),          // #004422
+  layer-inverse-03: map.get($wimbledon-green, 60),          // #00552B
+  layer-inverse-hover-01: map.get($wimbledon-green, 70),
+  layer-inverse-hover-02: map.get($wimbledon-green, 60),
+  layer-inverse-hover-03: map.get($wimbledon-green, base),   // #006633
+  layer-highlight: map.get($lawn-green, 10)                 // #D3F0E0
+);
+
+// Miscellaneous Colors
+$wdl-misc: (
+  highlight-brand-01: map.get($wimbledon-green, base),       // #006633
+  highlight-brand-02: map.get($wimbledon-purple, base),      // #540082
+  highlight-brand-03: map.get($lawn-green, base),           // #22B263
+  highlight-brand-04: map.get($champagne, base),             // #E2D9B5
+  highlight-brand-05: map.get($violet-purple, base),        // #8800E0
+  highlight-brand-06: map.get($ball-yellow, base),           // #F3FF00
+  highlight-brand-07: map.get($fresh-green, base),          // #CAE86B
+  highlight-brand-08: map.get($floral-pink, base),           // #F57AF9
+  highlight-brand-09: map.get($lavender, base),             // #C8B6FF
+  highlight-brand-10: map.get($silver, base),                // #B5B1A7
+  highlight-brand-10-dark: map.get($silver, 70),            // #79766F
+  toggle-on: map.get($wimbledon-green, base),               // #006633
+  overlay-transparent: rgba(255, 255, 255, 0),
+  overlay-faint: rgba(0, 0, 0, 0.15),
+  overlay-light: rgba(0, 0, 0, 0.4),
+  overlay-medium: rgba(0, 0, 0, 0.6),
+  overlay-strong: rgba(0, 0, 0, 0.85),
+  skeleton-element: map.get($wdl-grey, 25),                  // #C1C7CD
+  skeleton-background: map.get($wdl-grey, 5)                // #F2F4F8
+);
+
+// Focus Colors
+$wdl-focus: (
+  focus: $blue-60,                                           // #0F62FE
+  focus-inset: $white,
+  focus-inverse: $white
+);
+
+// Field Colors
+$wdl-field: (
+  field: $white,
+  field-hover: map.get($wdl-grey, 10),
+  field-disabled: map.get($wdl-grey, 10)
+);
+
+// Border Colors
+$wdl-border: (
+  border-light: map.get($wdl-grey, 5),
+  border-strong: map.get($wdl-grey, 15),
+  border-disabled: map.get($wdl-grey, 10),
+  border-light-inverse: map.get($wimbledon-green, 80),
+  border-strong-inverse: map.get($wimbledon-green, 60),
+  border-disabled-inverse: map.get($score-green, 30),       // #879186
+  border-white: $white,
+  border-brand-01: map.get($wimbledon-green, base),
+  border-brand-02: map.get($wimbledon-purple, base),
+  border-brand-03: map.get($petunia-purple, base),
+  border-brand-04: map.get($gold, base)
+);
+
+// Icon Colors
+$wdl-icon: (
+  icon-primary: map.get($wdl-grey, 95),
+  icon-secondary: map.get($wdl-grey, 55),
+  icon-on-colour: $white,
+  icon-inverse: $white,
+  icon-inverse-secondary-01: map.get($score-green, 30),
+  icon-inverse-secondary-02: map.get($petunia-purple, 20),
+  icon-interactive-1: map.get($wimbledon-green, base),
+  icon-interactive-2: map.get($wimbledon-purple, base),
+  icon-interactive-on-colour: map.get($ball-yellow, base),
+  icon-interactive-inverse: map.get($lawn-green, base),
+  icon-disabled: map.get($wdl-grey, 45),
+  icon-disabled-inverse: map.get($score-green, 40)
+);
+
+// Text Colors
+$wdl-text: (
+  text-brand-01: map.get($wimbledon-green, base),
+  text-brand-02: map.get($wimbledon-purple, base),
+  text-brand-03: map.get($gold, base),
+  text-primary: map.get($wdl-grey, 95),
+  text-secondary: map.get($wdl-grey, 55),
+  text-secondary-dark: map.get($wdl-grey, 65),
+  text-placeholder: map.get($wdl-grey, 35),
+  text-helper: map.get($wdl-grey, 55),
+  text-error: $red-60,
+  text-disabled: map.get($wdl-grey, 45),
+  text-disabled-inverse: map.get($score-green, 40),
+  text-on-colour: $white,
+  text-inverse: $white,
+  text-inverse-secondary-01: map.get($score-green, 30),
+  text-inverse-secondary-01-light: map.get($score-green, 20),
+  text-inverse-secondary-02: map.get($petunia-purple, 20),
+  text-highlight: map.get($ball-yellow, base)
+);
+
+// Link Colors
+$wdl-link: (
+  link-primary: map.get($wimbledon-green, base),
+  link-primary-hover: map.get($wimbledon-green, 60),
+  link-on-colour: $white,
+  link-on-colour-hover: map.get($wdl-grey, 10),
+  link-inverse: $white,
+  link-inverse-hover: map.get($score-green, 10)
+);
+
+// Button Colors
+$wdl-button: (
+  button-primary: map.get($wimbledon-green, base),
+  button-primary-hover: map.get($wimbledon-green, 60),
+  button-primary-active: map.get($wimbledon-green, 80),
+  button-secondary: map.get($wdl-grey, 10),
+  button-secondary-hover: map.get($wdl-grey, 15),
+  button-secondary-active: map.get($wdl-grey, 20),
+  button-secondary-on-colour: $white,
+  button-secondary-on-colour-hover: map.get($wdl-grey, 5),
+  button-secondary-on-colour-active: map.get($wdl-grey, 10),
+  button-secondary-inverse: map.get($wimbledon-green, 80),
+  button-secondary-inverse-hover: map.get($wimbledon-green, 70),
+  button-secondary-inverse-active: map.get($wimbledon-green, base),
+  button-tertiary: map.get($wimbledon-green, base),
+  button-tertiary-hover: map.get($wimbledon-green, 60),
+  button-tertiary-active: map.get($wimbledon-green, 80),
+  button-danger: $red-60,
+  button-danger-hover: $red-70,
+  button-danger-active: $red-80,
+  button-disabled: map.get($wdl-grey, 20),
+  button-disabled-inverse: map.get($wimbledon-green, 80)
+);
+
+// Support Colors
+$wdl-support: (
+  support-error: $red-60,
+  support-success: $green-60,
+  support-warning: $yellow-30,
+  support-info: $blue-70,
+  support-error-inverse: $red-50,
+  support-success-inverse: $green-40,
+  support-warning-inverse: $yellow-30,
+  support-info-inverse: $blue-50,
+  support-caution-major: $orange-40,
+  support-caution-minor: $yellow-30,
+  support-undefined: $purple-60
+);
+
+// Notification Colors
+$wdl-notification: (
+  notification-brand-inverse-background: map.get($wimbledon-green, 80),
+  notification-info-background: $blue-10,
+  notification-info-border: rgba(0, 67, 206, 0.3),
+  notification-success-background: $green-10,
+  notification-success-border: rgba(36, 161, 72, 0.3),
+  notification-error-background: $red-10,
+  notification-error-border: rgba(218, 30, 40, 0.3),
+  notification-warning-background: $yellow-10,
+  notification-warning-border: rgba(241, 194, 27, 0.3)
+);
+
+/* -----------------------------------------------------------------------------
+ * Support Tag Colors
+ * ---------------------------------------------------------------------------*/
+
+// Support Tag - Blue
+$wdl-support-tag-blue: (
+  tag-background: $blue-20,
+  tag-color: $blue-70,
+  tag-icon: $blue-70,
+  tag-border: rgba(255, 255, 255, 0)
+);
+
+// Support Tag - Green
+$wdl-support-tag-green: (
+  tag-background: $green-20,
+  tag-color: $green-70,
+  tag-icon: $green-70,
+  tag-border-transparent: rgba(255, 255, 255, 0)
+);
+
+// Support Tag - Red
+$wdl-support-tag-red: (
+  tag-background: $red-20,
+  tag-color: $red-70,
+  tag-icon: $red-70,
+  tag-border-transparent: rgba(255, 255, 255, 0)
+);
+
+// Support Tag - Yellow
+$wdl-support-tag-yellow: (
+  tag-background: $yellow-20,
+  tag-color: $yellow-70,
+  tag-icon: $yellow-70,
+  tag-border-transparent: rgba(255, 255, 255, 0)
+);
+
+// Brand Tag - Grey
+$wdl-brand-tag-grey: (
+  tag-background: map.get($wdl-grey, 5),
+  tag-color: map.get($wdl-grey, 55),
+  tag-icon: map.get($wdl-grey, 55),
+  tag-border-transparent: rgba(255, 255, 255, 0)
+);
+
+$wdl-brand-tag-grey-dark: (
+  tag-background: map.get($wdl-grey, 15),
+  tag-color: map.get($wdl-grey, 95),
+  tag-icon: map.get($wdl-grey, 95),
+  tag-border-transparent: rgba(255, 255, 255, 0)
+);
+
+// Brand Tag - Green
+$wdl-brand-tag-green: (
+  tag-background: map.get($lawn-green, 10),
+  tag-color: map.get($wimbledon-green, base),
+  tag-icon: map.get($wimbledon-green, base),
+  tag-border: rgba(255, 255, 255, 0)
+);
+
+$wdl-brand-tag-green-inverse: (
+  tag-background: map.get($wimbledon-green, base),
+  tag-color: $white,
+  tag-icon: $white,
+  tag-border: rgba(255, 255, 255, 0)
+);
+
+// Brand Tag - Purple
+$wdl-brand-tag-purple: (
+  tag-background: map.get($violet-purple, 10),
+  tag-color: map.get($wimbledon-purple, base),
+  tag-icon: map.get($wimbledon-purple, base),
+  tag-border: rgba(255, 255, 255, 0)
+);
+
+$wdl-brand-tag-purple-inverse: (
+  tag-background: map.get($wimbledon-purple, base),
+  tag-color: $white,
+  tag-icon: $white,
+  tag-border: rgba(255, 255, 255, 0)
+);
+
+// Brand Tag - Gold
+$wdl-brand-tag-gold: (
+  tag-background: map.get($gold, 10),
+  tag-color: map.get($gold, 60),
+  tag-icon: map.get($gold, 60),
+  tag-border-transparent: rgba(255, 255, 255, 0)
+);
+
+$wdl-brand-tag-gold-inverse: (
+  tag-background: map.get($gold, 60),
+  tag-color: $white,
+  tag-icon: $white,
+  tag-border-transparent: rgba(255, 255, 255, 0)
+);
+
+// Brand Tag - Petunia Inverse
+$wdl-brand-tag-petunia-inverse: (
+  tag-background: map.get($petunia-purple, base),
+  tag-color: $white,
+  tag-icon: $white,
+  tag-border: rgba(255, 255, 255, 0)
+);

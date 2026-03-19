@@ -1,0 +1,598 @@
+/**
+* Wimbledon Design Language — UI Tokens SCSS
+ * File: wdl_tokens.scss
+ *
+ * Converted from wdl_tokens.tsx to SCSS format for better integration
+ * with Carbon Design System and SCSS workflows.
+ *
+ * This file provides semantic UI tokens for text, links, icons, borders,
+ * backgrounds, and other UI elements that work alongside Carbon Design System.
+ */
+
+/* -----------------------------------------------------------------------------
+ * Import Dependencies
+ * ---------------------------------------------------------------------------*/
+
+@use './colors.scss' as colors;
+@use './typography.scss' as typography;
+@use './spacing.scss' as spacing;
+
+/* -----------------------------------------------------------------------------
+ * Re-Export Variables for Compatibility
+ * ---------------------------------------------------------------------------*/
+
+// Re-export $wdl-spacing from the spacing module for compatibility with existing code
+$wdl-spacing: spacing.$wdl-spacing;
+
+/* -----------------------------------------------------------------------------
+ * CSS Custom Properties (CSS Variables)
+ * ---------------------------------------------------------------------------*/
+
+:root {
+  // Background Colors
+  --wdl-background-grey: #{map-get(colors.$wdl-background, background-grey)};
+  --wdl-background-white: #{map-get(colors.$wdl-background, background-white)};
+  --wdl-background-hover: #{map-get(colors.$wdl-background, background-hover)};
+  --wdl-background-active: #{map-get(colors.$wdl-background, background-active)};
+  --wdl-background-selected: #{map-get(colors.$wdl-background, background-selected)};
+  --wdl-background-selected-hover: #{map-get(colors.$wdl-background, background-selected-hover)};
+  --wdl-background-inverse-01: #{map-get(colors.$wdl-background, background-inverse-01)};
+  --wdl-background-inverse-01-hover: #{map-get(colors.$wdl-background, background-inverse-01-hover)};
+  --wdl-background-inverse-02: #{map-get(colors.$wdl-background, background-inverse-02)};
+  --wdl-background-brand-01: #{map-get(colors.$wdl-background, background-brand-01)};
+  --wdl-background-brand-02: #{map-get(colors.$wdl-background, background-brand-02)};
+  --wdl-background-brand-03: #{map-get(colors.$wdl-background, background-brand-03)};
+  --wdl-background-brand-04: #{map-get(colors.$wdl-background, background-brand-04)};
+
+  // Data Colors
+  --wdl-data-background: #{map-get(colors.$wdl-data, data-background)};
+  --wdl-data-input: #{map-get(colors.$wdl-data, data-input)};
+  --wdl-data-highlight: #{map-get(colors.$wdl-data, data-highlight)};
+  --wdl-data-label: #{map-get(colors.$wdl-data, data-label)};
+
+  // Layer Colors
+  --wdl-layer-01: #{map-get(colors.$wdl-layer, layer-01)}; 
+  --wdl-layer-02: #{map-get(colors.$wdl-layer, layer-02)};
+  --wdl-layer-03: #{map-get(colors.$wdl-layer, layer-03)};
+  --wdl-layer-hover-01: #{map-get(colors.$wdl-layer, layer-hover-01)};
+  --wdl-layer-hover-02: #{map-get(colors.$wdl-layer, layer-hover-02)};
+  --wdl-layer-hover-03: #{map-get(colors.$wdl-layer, layer-hover-03)};
+  --wdl-layer-active-01: #{map-get(colors.$wdl-layer, layer-active-01)};
+  --wdl-layer-active-02: #{map-get(colors.$wdl-layer, layer-active-02)};
+  --wdl-layer-active-03: #{map-get(colors.$wdl-layer, layer-active-03)};
+  --wdl-layer-selected-01: #{map-get(colors.$wdl-layer, layer-selected-01)};
+  --wdl-layer-selected-02: #{map-get(colors.$wdl-layer, layer-selected-02)};
+  --wdl-layer-selected-03: #{map-get(colors.$wdl-layer, layer-selected-03)};
+  --wdl-layer-selected-hover-01: #{map-get(colors.$wdl-layer, layer-selected-hover-01)};
+  --wdl-layer-selected-hover-02: #{map-get(colors.$wdl-layer, layer-selected-hover-02)};
+  --wdl-layer-selected-hover-03: #{map-get(colors.$wdl-layer, layer-selected-hover-03)};
+  --wdl-layer-selected-inverse: #{map-get(colors.$wdl-layer, layer-selected-inverse)};
+  --wdl-layer-inverse-01: #{map-get(colors.$wdl-layer, layer-inverse-01)};
+  --wdl-layer-inverse-02: #{map-get(colors.$wdl-layer, layer-inverse-02)};
+  --wdl-layer-inverse-03: #{map-get(colors.$wdl-layer, layer-inverse-03)};
+  --wdl-layer-inverse-hover-01: #{map-get(colors.$wdl-layer, layer-inverse-hover-01)};
+  --wdl-layer-inverse-hover-02: #{map-get(colors.$wdl-layer, layer-inverse-hover-02)};
+  --wdl-layer-inverse-hover-03: #{map-get(colors.$wdl-layer, layer-inverse-hover-03)};
+  --wdl-layer-highlight: #{map-get(colors.$wdl-layer, layer-highlight)};
+
+  // Miscellaneous Colors
+  --wdl-highlight-brand-01: #{map-get(colors.$wdl-misc, highlight-brand-01)};
+  --wdl-highlight-brand-02: #{map-get(colors.$wdl-misc, highlight-brand-02)};
+  --wdl-highlight-brand-03: #{map-get(colors.$wdl-misc, highlight-brand-03)};
+  --wdl-highlight-brand-04: #{map-get(colors.$wdl-misc, highlight-brand-04)};
+  --wdl-highlight-brand-05: #{map-get(colors.$wdl-misc, highlight-brand-05)};
+  --wdl-highlight-brand-06: #{map-get(colors.$wdl-misc, highlight-brand-06)};
+  --wdl-highlight-brand-07: #{map-get(colors.$wdl-misc, highlight-brand-07)};
+  --wdl-highlight-brand-08: #{map-get(colors.$wdl-misc, highlight-brand-08)};
+  --wdl-highlight-brand-09: #{map-get(colors.$wdl-misc, highlight-brand-09)};
+  --wdl-highlight-brand-10: #{map-get(colors.$wdl-misc, highlight-brand-10)};
+  --wdl-highlight-brand-10-dark: #{map-get(colors.$wdl-misc, highlight-brand-10-dark)};
+  --wdl-toggle-on: #{map-get(colors.$wdl-misc, toggle-on)};
+  --wdl-overlay-transparent: #{map-get(colors.$wdl-misc, overlay-transparent)};
+  --wdl-overlay-faint: #{map-get(colors.$wdl-misc, overlay-faint)};
+  --wdl-overlay-light: #{map-get(colors.$wdl-misc, overlay-light)};
+  --wdl-overlay-medium: #{map-get(colors.$wdl-misc, overlay-medium)};
+  --wdl-overlay-strong: #{map-get(colors.$wdl-misc, overlay-strong)};
+  --wdl-skeleton-element: #{map-get(colors.$wdl-misc, skeleton-element)};
+  --wdl-skeleton-background: #{map-get(colors.$wdl-misc, skeleton-background)};
+
+  // Focus Colors
+  --wdl-focus: #{map-get(colors.$wdl-focus, focus)};
+  --wdl-focus-inset: #{map-get(colors.$wdl-focus, focus-inset)};
+  --wdl-focus-inverse: #{map-get(colors.$wdl-focus, focus-inverse)};
+
+  // Field Colors
+  --wdl-field: #{map-get(colors.$wdl-field, field)};
+  --wdl-field-hover: #{map-get(colors.$wdl-field, field-hover)};
+  --wdl-field-disabled: #{map-get(colors.$wdl-field, field-disabled)};
+
+  // Border Colors
+  --wdl-border-light: #{map-get(colors.$wdl-border, border-light)};
+  --wdl-border-strong: #{map-get(colors.$wdl-border, border-strong)};
+  --wdl-border-disabled: #{map-get(colors.$wdl-border, border-disabled)};
+  --wdl-border-light-inverse: #{map-get(colors.$wdl-border, border-light-inverse)};
+  --wdl-border-strong-inverse: #{map-get(colors.$wdl-border, border-strong-inverse)};
+  --wdl-border-disabled-inverse: #{map-get(colors.$wdl-border, border-disabled-inverse)};
+  --wdl-border-white: #{map-get(colors.$wdl-border, border-white)};
+  --wdl-border-brand-01: #{map-get(colors.$wdl-border, border-brand-01)};
+  --wdl-border-brand-02: #{map-get(colors.$wdl-border, border-brand-02)};
+  --wdl-border-brand-03: #{map-get(colors.$wdl-border, border-brand-03)};
+  --wdl-border-brand-04: #{map-get(colors.$wdl-border, border-brand-04)};
+
+  // Icon Colors
+  --wdl-icon-primary: #{map-get(colors.$wdl-icon, icon-primary)};
+  --wdl-icon-secondary: #{map-get(colors.$wdl-icon, icon-secondary)};
+  --wdl-icon-on-colour: #{map-get(colors.$wdl-icon, icon-on-colour)};
+  --wdl-icon-inverse: #{map-get(colors.$wdl-icon, icon-inverse)};
+  --wdl-icon-inverse-secondary-01: #{map-get(colors.$wdl-icon, icon-inverse-secondary-01)};
+  --wdl-icon-inverse-secondary-02: #{map-get(colors.$wdl-icon, icon-inverse-secondary-02)};
+  --wdl-icon-interactive-1: #{map-get(colors.$wdl-icon, icon-interactive-1)};
+  --wdl-icon-interactive-2: #{map-get(colors.$wdl-icon, icon-interactive-2)};
+  --wdl-icon-interactive-on-colour: #{map-get(colors.$wdl-icon, icon-interactive-on-colour)};
+  --wdl-icon-interactive-inverse: #{map-get(colors.$wdl-icon, icon-interactive-inverse)};
+  --wdl-icon-disabled: #{map-get(colors.$wdl-icon, icon-disabled)};
+  --wdl-icon-disabled-inverse: #{map-get(colors.$wdl-icon, icon-disabled-inverse)};
+
+  // Text Colors
+  --wdl-text-brand-01: #{map-get(colors.$wdl-text, text-brand-01)};
+  --wdl-text-brand-02: #{map-get(colors.$wdl-text, text-brand-02)};
+  --wdl-text-brand-03: #{map-get(colors.$wdl-text, text-brand-03)};
+  --wdl-text-primary: #{map-get(colors.$wdl-text, text-primary)};
+  --wdl-text-secondary: #{map-get(colors.$wdl-text, text-secondary)};
+  --wdl-text-secondary-dark: #{map-get(colors.$wdl-text, text-secondary-dark)};
+  --wdl-text-placeholder: #{map-get(colors.$wdl-text, text-placeholder)};
+  --wdl-text-helper: #{map-get(colors.$wdl-text, text-helper)};
+  --wdl-text-error: #{map-get(colors.$wdl-text, text-error)};
+  --wdl-text-disabled: #{map-get(colors.$wdl-text, text-disabled)};
+  --wdl-text-disabled-inverse: #{map-get(colors.$wdl-text, text-disabled-inverse)};
+  --wdl-text-on-colour: #{map-get(colors.$wdl-text, text-on-colour)};
+  --wdl-text-inverse: #{map-get(colors.$wdl-text, text-inverse)};
+  --wdl-text-inverse-secondary-01: #{map-get(colors.$wdl-text, text-inverse-secondary-01)};
+  --wdl-text-inverse-secondary-01-light: #{map-get(colors.$wdl-text, text-inverse-secondary-01-light)};
+  --wdl-text-inverse-secondary-02: #{map-get(colors.$wdl-text, text-inverse-secondary-02)};
+  --wdl-text-highlight: #{map-get(colors.$wdl-text, text-highlight)};
+
+  // Link Colors
+  --wdl-link-primary: #{map-get(colors.$wdl-link, link-primary)};
+  --wdl-link-primary-hover: #{map-get(colors.$wdl-link, link-primary-hover)};
+  --wdl-link-on-colour: #{map-get(colors.$wdl-link, link-on-colour)};
+  --wdl-link-on-colour-hover: #{map-get(colors.$wdl-link, link-on-colour-hover)};
+  --wdl-link-inverse: #{map-get(colors.$wdl-link, link-inverse)};
+  --wdl-link-inverse-hover: #{map-get(colors.$wdl-link, link-inverse-hover)};
+
+  // Button Colors
+  --wdl-button-primary: #{map-get(colors.$wdl-button, button-primary)};
+  --wdl-button-primary-hover: #{map-get(colors.$wdl-button, button-primary-hover)};
+  --wdl-button-primary-active: #{map-get(colors.$wdl-button, button-primary-active)};
+  --wdl-button-secondary: #{map-get(colors.$wdl-button, button-secondary)};
+  --wdl-button-secondary-hover: #{map-get(colors.$wdl-button, button-secondary-hover)};
+  --wdl-button-secondary-active: #{map-get(colors.$wdl-button, button-secondary-active)};
+  --wdl-button-secondary-on-colour: #{map-get(colors.$wdl-button, button-secondary-on-colour)};
+  --wdl-button-secondary-on-colour-hover: #{map-get(colors.$wdl-button, button-secondary-on-colour-hover)};
+  --wdl-button-secondary-on-colour-active: #{map-get(colors.$wdl-button, button-secondary-on-colour-active)};
+  --wdl-button-secondary-inverse: #{map-get(colors.$wdl-button, button-secondary-inverse)};
+  --wdl-button-secondary-inverse-hover: #{map-get(colors.$wdl-button, button-secondary-inverse-hover)};
+  --wdl-button-secondary-inverse-active: #{map-get(colors.$wdl-button, button-secondary-inverse-active)};
+  --wdl-button-tertiary: #{map-get(colors.$wdl-button, button-tertiary)};
+  --wdl-button-tertiary-hover: #{map-get(colors.$wdl-button, button-tertiary-hover)};
+  --wdl-button-tertiary-active: #{map-get(colors.$wdl-button, button-tertiary-active)};
+  --wdl-button-danger: #{map-get(colors.$wdl-button, button-danger)};
+  --wdl-button-danger-hover: #{map-get(colors.$wdl-button, button-danger-hover)};
+  --wdl-button-danger-active: #{map-get(colors.$wdl-button, button-danger-active)};
+  --wdl-button-disabled: #{map-get(colors.$wdl-button, button-disabled)};
+  --wdl-button-disabled-inverse: #{map-get(colors.$wdl-button, button-disabled-inverse)};
+
+  // Support Colors
+  --wdl-support-error: #{map-get(colors.$wdl-support, support-error)};
+  --wdl-support-success: #{map-get(colors.$wdl-support, support-success)};
+  --wdl-support-warning: #{map-get(colors.$wdl-support, support-warning)};
+  --wdl-support-info: #{map-get(colors.$wdl-support, support-info)};
+  --wdl-support-error-inverse: #{map-get(colors.$wdl-support, support-error-inverse)};
+  --wdl-support-success-inverse: #{map-get(colors.$wdl-support, support-success-inverse)};
+  --wdl-support-warning-inverse: #{map-get(colors.$wdl-support, support-warning-inverse)};
+  --wdl-support-info-inverse: #{map-get(colors.$wdl-support, support-info-inverse)};
+  --wdl-support-caution-major: #{map-get(colors.$wdl-support, support-caution-major)};
+  --wdl-support-caution-minor: #{map-get(colors.$wdl-support, support-caution-minor)};
+  --wdl-support-undefined: #{map-get(colors.$wdl-support, support-undefined)};
+
+  // Notification Colors
+  --wdl-notification-brand-inverse-background: #{map-get(colors.$wdl-notification, notification-brand-inverse-background)};
+  --wdl-notification-info-background: #{map-get(colors.$wdl-notification, notification-info-background)};
+  --wdl-notification-info-border: #{map-get(colors.$wdl-notification, notification-info-border)};
+  --wdl-notification-success-background: #{map-get(colors.$wdl-notification, notification-success-background)};
+  --wdl-notification-success-border: #{map-get(colors.$wdl-notification, notification-success-border)};
+  --wdl-notification-error-background: #{map-get(colors.$wdl-notification, notification-error-background)};
+  --wdl-notification-error-border: #{map-get(colors.$wdl-notification, notification-error-border)};
+  --wdl-notification-warning-background: #{map-get(colors.$wdl-notification, notification-warning-background)};
+  --wdl-notification-warning-border: #{map-get(colors.$wdl-notification, notification-warning-border)};
+}
+
+/* -----------------------------------------------------------------------------
+ * Utility Classes for Common UI Patterns
+ * ---------------------------------------------------------------------------*/
+
+// Background Utility Classes
+.wdl-bg-grey { background-color: var(--wdl-background-grey); }
+.wdl-bg-white { background-color: var(--wdl-background-white); }
+.wdl-bg-hover { background-color: var(--wdl-background-hover); }
+.wdl-bg-active { background-color: var(--wdl-background-active); }
+.wdl-bg-selected { background-color: var(--wdl-background-selected); }
+.wdl-bg-selected-hover { background-color: var(--wdl-background-selected-hover); }
+.wdl-bg-inverse-01 { background-color: var(--wdl-background-inverse-01); }
+.wdl-bg-inverse-01-hover { background-color: var(--wdl-background-inverse-01-hover); }
+.wdl-bg-inverse-02 { background-color: var(--wdl-background-inverse-02); }
+.wdl-bg-brand-01 { background-color: var(--wdl-background-brand-01); }
+.wdl-bg-brand-02 { background-color: var(--wdl-background-brand-02); }
+.wdl-bg-brand-03 { background-color: var(--wdl-background-brand-03); }
+.wdl-bg-brand-04 { background-color: var(--wdl-background-brand-04); }
+
+// Text Color Utility Classes
+.wdl-text-brand-01 { color: var(--wdl-text-brand-01); }
+.wdl-text-brand-02 { color: var(--wdl-text-brand-02); }
+.wdl-text-brand-03 { color: var(--wdl-text-brand-03); }
+.wdl-text-primary { color: var(--wdl-text-primary); }
+.wdl-text-secondary { color: var(--wdl-text-secondary); }
+.wdl-text-secondary-dark { color: var(--wdl-text-secondary-dark); }
+.wdl-text-placeholder { color: var(--wdl-text-placeholder); }
+.wdl-text-helper { color: var(--wdl-text-helper); }
+.wdl-text-error { color: var(--wdl-text-error); }
+.wdl-text-disabled { color: var(--wdl-text-disabled); }
+.wdl-text-disabled-inverse { color: var(--wdl-text-disabled-inverse); }
+.wdl-text-on-colour { color: var(--wdl-text-on-colour); }
+.wdl-text-inverse { color: var(--wdl-text-inverse); }
+.wdl-text-inverse-secondary-01 { color: var(--wdl-text-inverse-secondary-01); }
+.wdl-text-inverse-secondary-01-light { color: var(--wdl-text-inverse-secondary-01-light); }
+.wdl-text-inverse-secondary-02 { color: var(--wdl-text-inverse-secondary-02); }
+.wdl-text-highlight { color: var(--wdl-text-highlight); }
+
+// Border Utility Classes
+.wdl-border-light { border-color: var(--wdl-border-light); }
+.wdl-border-strong { border-color: var(--wdl-border-strong); }
+.wdl-border-disabled { border-color: var(--wdl-border-disabled); }
+.wdl-border-light-inverse { border-color: var(--wdl-border-light-inverse); }
+.wdl-border-strong-inverse { border-color: var(--wdl-border-strong-inverse); }
+.wdl-border-disabled-inverse { border-color: var(--wdl-border-disabled-inverse); }
+.wdl-border-white { border-color: var(--wdl-border-white); }
+.wdl-border-brand-01 { border-color: var(--wdl-border-brand-01); }
+.wdl-border-brand-02 { border-color: var(--wdl-border-brand-02); }
+.wdl-border-brand-03 { border-color: var(--wdl-border-brand-03); }
+.wdl-border-brand-04 { border-color: var(--wdl-border-brand-04); }
+
+// Icon Color Utility Classes
+.wdl-icon-primary { color: var(--wdl-icon-primary); }
+.wdl-icon-secondary { color: var(--wdl-icon-secondary); }
+.wdl-icon-on-colour { color: var(--wdl-icon-on-colour); }
+.wdl-icon-inverse { color: var(--wdl-icon-inverse); }
+.wdl-icon-inverse-secondary-01 { color: var(--wdl-icon-inverse-secondary-01); }
+.wdl-icon-inverse-secondary-02 { color: var(--wdl-icon-inverse-secondary-02); }
+.wdl-icon-interactive-1 { color: var(--wdl-icon-interactive-1); }
+.wdl-icon-interactive-2 { color: var(--wdl-icon-interactive-2); }
+.wdl-icon-interactive-on-colour { color: var(--wdl-icon-interactive-on-colour); }
+.wdl-icon-interactive-inverse { color: var(--wdl-icon-interactive-inverse); }
+.wdl-icon-disabled { color: var(--wdl-icon-disabled); }
+.wdl-icon-disabled-inverse { color: var(--wdl-icon-disabled-inverse); }
+
+// Link Utility Classes
+.wdl-link-primary { 
+  color: var(--wdl-link-primary); 
+  text-decoration: underline;
+  cursor: pointer;
+  
+  &:hover {
+    color: var(--wdl-link-primary-hover);
+  }
+}
+
+.wdl-link-on-colour { 
+  color: var(--wdl-link-on-colour); 
+  text-decoration: underline;
+  cursor: pointer;
+  
+  &:hover {
+    color: var(--wdl-link-on-colour-hover);
+  }
+}
+
+.wdl-link-inverse { 
+  color: var(--wdl-link-inverse); 
+  text-decoration: underline;
+  cursor: pointer;
+  
+  &:hover {
+    color: var(--wdl-link-inverse-hover);
+  }
+}
+
+// Button Utility Classes
+.wdl-button-primary {
+  background-color: var(--wdl-button-primary);
+  color: var(--wdl-text-on-colour);
+  border: none;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: var(--wdl-button-primary-hover);
+  }
+  
+  &:active {
+    background-color: var(--wdl-button-primary-active);
+  }
+  
+  &:disabled {
+    background-color: var(--wdl-button-disabled);
+    color: var(--wdl-text-disabled);
+    cursor: not-allowed;
+  }
+}
+
+.wdl-button-secondary {
+  background-color: var(--wdl-button-secondary);
+  color: var(--wdl-text-primary);
+  border: 1px solid var(--wdl-border-strong);
+  cursor: pointer;
+  
+  &:hover {
+    background-color: var(--wdl-button-secondary-hover);
+  }
+  
+  &:active {
+    background-color: var(--wdl-button-secondary-active);
+  }
+  
+  &:disabled {
+    background-color: var(--wdl-button-disabled);
+    color: var(--wdl-text-disabled);
+    cursor: not-allowed;
+  }
+}
+
+.wdl-button-tertiary {
+  background-color: transparent;
+  color: var(--wdl-button-tertiary);
+  border: 1px solid var(--wdl-button-tertiary);
+  cursor: pointer;
+  
+  &:hover {
+    color: var(--wdl-button-tertiary-hover);
+    border-color: var(--wdl-button-tertiary-hover);
+  }
+  
+  &:active {
+    color: var(--wdl-button-tertiary-active);
+    border-color: var(--wdl-button-tertiary-active);
+  }
+  
+  &:disabled {
+    color: var(--wdl-text-disabled);
+    border-color: var(--wdl-text-disabled);
+    cursor: not-allowed;
+  }
+}
+
+.wdl-button-danger {
+  background-color: var(--wdl-button-danger);
+  color: var(--wdl-text-on-colour);
+  border: none;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: var(--wdl-button-danger-hover);
+  }
+  
+  &:active {
+    background-color: var(--wdl-button-danger-active);
+  }
+  
+  &:disabled {
+    background-color: var(--wdl-button-disabled);
+    color: var(--wdl-text-disabled);
+    cursor: not-allowed;
+  }
+}
+
+// Support Status Utility Classes
+.wdl-support-error { color: var(--wdl-support-error); }
+.wdl-support-success { color: var(--wdl-support-success); }
+.wdl-support-warning { color: var(--wdl-support-warning); }
+.wdl-support-info { color: var(--wdl-support-info); }
+
+// Focus Utility Classes
+.wdl-focus {
+  outline: 2px solid var(--wdl-focus);
+  outline-offset: 2px;
+}
+
+.wdl-focus-inset {
+  outline: 2px solid var(--wdl-focus-inset);
+  outline-offset: -2px;
+}
+
+.wdl-focus-inverse {
+  outline: 2px solid var(--wdl-focus-inverse);
+  outline-offset: 2px;
+}
+
+// Field Utility Classes
+.wdl-field {
+  background-color: var(--wdl-field);
+  border: 1px solid var(--wdl-border-strong);
+  
+  &:hover {
+    background-color: var(--wdl-field-hover);
+  }
+  
+  &:disabled {
+    background-color: var(--wdl-field-disabled);
+    color: var(--wdl-text-disabled);
+    cursor: not-allowed;
+  }
+}
+
+// Notification Utility Classes
+.wdl-notification-info {
+  background-color: var(--wdl-notification-info-background);
+  border: 1px solid var(--wdl-notification-info-border);
+}
+
+.wdl-notification-success {
+  background-color: var(--wdl-notification-success-background);
+  border: 1px solid var(--wdl-notification-success-border);
+}
+
+.wdl-notification-error {
+  background-color: var(--wdl-notification-error-background);
+  border: 1px solid var(--wdl-notification-error-border);
+}
+
+.wdl-notification-warning {
+  background-color: var(--wdl-notification-warning-background);
+  border: 1px solid var(--wdl-notification-warning-border);
+}
+
+.wdl-notification-brand-inverse {
+  background-color: var(--wdl-notification-brand-inverse-background);
+  color: var(--wdl-text-inverse);
+}
+
+/* -----------------------------------------------------------------------------
+ * Support Tag Utility Classes
+ * ---------------------------------------------------------------------------*/
+
+// Support Tag - Blue
+.wdl-support-tag-blue {
+  background-color: map-get(colors.$wdl-support-tag-blue, tag-background);
+  color: map-get(colors.$wdl-support-tag-blue, tag-color);
+  border: 1px solid map-get(colors.$wdl-support-tag-blue, tag-border);
+  
+  .wdl-tag-icon {
+    color: map-get(colors.$wdl-support-tag-blue, tag-icon);
+  }
+}
+
+// Support Tag - Green
+.wdl-support-tag-green {
+  background-color: map-get(colors.$wdl-support-tag-green, tag-background);
+  color: map-get(colors.$wdl-support-tag-green, tag-color);
+  border: 1px solid map-get(colors.$wdl-support-tag-green, tag-border-transparent);
+  
+  .wdl-tag-icon {
+    color: map-get(colors.$wdl-support-tag-green, tag-icon);
+  }
+}
+
+// Support Tag - Red
+.wdl-support-tag-red {
+  background-color: map-get(colors.$wdl-support-tag-red, tag-background);
+  color: map-get(colors.$wdl-support-tag-red, tag-color);
+  border: 1px solid map-get(colors.$wdl-support-tag-red, tag-border-transparent);
+  
+  .wdl-tag-icon {
+    color: map-get(colors.$wdl-support-tag-red, tag-icon);
+  }
+}
+
+// Support Tag - Yellow
+.wdl-support-tag-yellow {
+  background-color: map-get(colors.$wdl-support-tag-yellow, tag-background);
+  color: map-get(colors.$wdl-support-tag-yellow, tag-color);
+  border: 1px solid map-get(colors.$wdl-support-tag-yellow, tag-border-transparent);
+  
+  .wdl-tag-icon {
+    color: map-get(colors.$wdl-support-tag-yellow, tag-icon);
+  }
+}
+
+// Brand Tag - Grey
+.wdl-brand-tag-grey {
+  background-color: map-get(colors.$wdl-brand-tag-grey, tag-background);
+  color: map-get(colors.$wdl-brand-tag-grey, tag-color);
+  border: 1px solid map-get(colors.$wdl-brand-tag-grey, tag-border-transparent);
+  
+  .wdl-tag-icon {
+    color: map-get(colors.$wdl-brand-tag-grey, tag-icon);
+  }
+  
+  &.wdl-brand-tag-grey-dark {
+    background-color: map-get(colors.$wdl-brand-tag-grey-dark, tag-background);
+    color: map-get(colors.$wdl-brand-tag-grey-dark, tag-color);
+    border: 1px solid map-get(colors.$wdl-brand-tag-grey-dark, tag-border-transparent);
+    
+    .wdl-tag-icon {
+      color: map-get(colors.$wdl-brand-tag-grey-dark, tag-icon);
+    }
+  }
+}
+
+// Brand Tag - Green
+.wdl-brand-tag-green {
+  background-color: map-get(colors.$wdl-brand-tag-green, tag-background);
+  color: map-get(colors.$wdl-brand-tag-green, tag-color);
+  border: 1px solid map-get(colors.$wdl-brand-tag-green, tag-border);
+  
+  .wdl-tag-icon {
+    color: map-get(colors.$wdl-brand-tag-green, tag-icon);
+  }
+  
+  &.wdl-brand-tag-green-inverse {
+    background-color: map-get(colors.$wdl-brand-tag-green-inverse, tag-background);
+    color: map-get(colors.$wdl-brand-tag-green-inverse, tag-color);
+    border: 1px solid map-get(colors.$wdl-brand-tag-green-inverse, tag-border);
+    
+    .wdl-tag-icon {
+      color: map-get(colors.$wdl-brand-tag-green-inverse, tag-icon);
+    }
+  }
+}
+
+// Brand Tag - Purple
+.wdl-brand-tag-purple {
+  background-color: map-get(colors.$wdl-brand-tag-purple, tag-background);
+  color: map-get(colors.$wdl-brand-tag-purple, tag-color);
+  border: 1px solid map-get(colors.$wdl-brand-tag-purple, tag-border);
+  
+  .wdl-tag-icon {
+    color: map-get(colors.$wdl-brand-tag-purple, tag-icon);
+  }
+  
+  &.wdl-brand-tag-purple-inverse {
+    background-color: map-get(colors.$wdl-brand-tag-purple-inverse, tag-background);
+    color: map-get(colors.$wdl-brand-tag-purple-inverse, tag-color);
+    border: 1px solid map-get(colors.$wdl-brand-tag-purple-inverse, tag-border);
+    
+    .wdl-tag-icon {
+      color: map-get(colors.$wdl-brand-tag-purple-inverse, tag-icon);
+    }
+  }
+}
+
+// Brand Tag - Gold
+.wdl-brand-tag-gold {
+  background-color: map-get(colors.$wdl-brand-tag-gold, tag-background);
+  color: map-get(colors.$wdl-brand-tag-gold, tag-color);
+  border: 1px solid map-get(colors.$wdl-brand-tag-gold, tag-border-transparent);
+  
+  .wdl-tag-icon {
+    color: map-get(colors.$wdl-brand-tag-gold, tag-icon);
+  }
+  
+  &.wdl-brand-tag-gold-inverse {
+    background-color: map-get(colors.$wdl-brand-tag-gold-inverse, tag-background);
+    color: map-get(colors.$wdl-brand-tag-gold-inverse, tag-color);
+    border: 1px solid map-get(colors.$wdl-brand-tag-gold-inverse, tag-border-transparent);
+    
+    .wdl-tag-icon {
+      color: map-get(colors.$wdl-brand-tag-gold-inverse, tag-icon);
+    }
+  }
+}
+
+// Brand Tag - Petunia Inverse
+.wdl-brand-tag-petunia-inverse {
+  background-color: map-get(colors.$wdl-brand-tag-petunia-inverse, tag-background);
+  color: map-get(colors.$wdl-brand-tag-petunia-inverse, tag-color);
+  border: 1px solid map-get(colors.$wdl-brand-tag-petunia-inverse, tag-border);
+  
+  .wdl-tag-icon {
+    color: map-get(colors.$wdl-brand-tag-petunia-inverse, tag-icon);
+  }
+}

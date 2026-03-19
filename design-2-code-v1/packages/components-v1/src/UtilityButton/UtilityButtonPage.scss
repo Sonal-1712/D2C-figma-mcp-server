@@ -1,0 +1,116 @@
+// UtilityButtonPage.scss
+@import "../../../design-system-v1/src/scss/colors.scss";
+@import "../../../design-system-v1/src/scss/typography.scss"; 
+@import "../../../design-system-v1/src/scss/tokens.scss";
+
+.utility-button-page {
+  padding: 20px;
+  
+  h1 {
+    margin-bottom: 24px;
+    font-weight: 700;
+    color: map-get($wdl-text, text-primary);
+  }
+  
+  h2 {
+    margin: 24px 0 16px;
+    font-weight: 600;
+    color: map-get($wdl-text, text-primary);
+  }
+  
+  h3 {
+    margin: 16px 0 8px;
+    font-weight: 500;
+    color: map-get($wdl-text, text-primary);
+  }
+  
+  section {
+    margin-bottom: 32px;
+  }
+  
+  p {
+    margin-bottom: 16px;
+    line-height: 1.5;
+    color: map-get($wdl-text, text-secondary);
+  }
+  
+  .example {
+    margin-bottom: 24px;
+    padding: 16px;
+    border: 1px solid map-get($wdl-border, border-subtle-1);
+    border-radius: 8px;
+    
+    &-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 80px;
+      padding: 16px;
+      margin-bottom: 16px;
+      background-color: map-get($wdl-background, background-subtle-1);
+      border-radius: 4px;
+    }
+    
+    &-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 24px;
+      margin-bottom: 16px;
+      
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        
+        p {
+          margin-bottom: 8px;
+          font-size: 14px;
+        }
+      }
+    }
+    
+    pre {
+      padding: 16px;
+      overflow: auto;
+      background-color: map-get($wdl-background, background-subtle-2);
+      border-radius: 4px;
+      
+      code {
+        font-family: monospace;
+        font-size: 14px;
+        color: map-get($wdl-text, text-secondary);
+      }
+    }
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid map-get($wdl-border, border-subtle-1);
+    }
+    
+    th {
+      font-weight: 600;
+      background-color: map-get($wdl-background, background-subtle-1);
+    }
+    
+    td {
+      vertical-align: top;
+      
+      &:nth-child(2) {
+        color: map-get($wdl-text, text-helper);
+        font-family: monospace;
+      }
+      
+      &:nth-child(3) {
+        font-family: monospace;
+      }
+    }
+  }
+}

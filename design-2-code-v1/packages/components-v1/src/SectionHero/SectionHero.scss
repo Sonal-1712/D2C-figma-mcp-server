@@ -1,0 +1,385 @@
+// SectionHero.scss
+@import '../../../design-system-v1/src/scss/colors.scss';
+@import '../../../design-system-v1/src/scss/typography.scss';
+@import '../../../design-system-v1/src/scss/tokens.scss';
+
+.wdl-section-hero {
+  position: relative;
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+
+  // Container for all content
+  &__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    z-index: 1;
+  }
+
+  // Background element (for Max brand size)
+  &__background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  // Title area containing title and optional elements
+  &__title-area {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    position: relative;
+
+    // Default center alignment for Max brand size
+    .wdl-section-hero--max-brand & {
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    // Left alignment for small/medium sizes
+    .wdl-section-hero--small &,
+    .wdl-section-hero--medium & {
+      justify-content: flex-start;
+    }
+
+    @media (max-width: 768px) {
+      .wdl-section-hero--small &,
+      .wdl-section-hero--medium & {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  }
+
+  // Tag/subtitle above title (for max brand size)
+  &__tag {
+    font-family: map-get($wdl-fonts, adobe-caslon);
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 8px;
+    width: 100%;
+
+    .wdl-section-hero--desktop & {
+      font-size: 20px;
+      letter-spacing: 0.4px;
+      line-height: 1;
+    }
+
+    .wdl-section-hero--mobile & {
+      font-size: 14px;
+      letter-spacing: 0.28px;
+      line-height: 1;
+    }
+  }
+
+  // Main title
+  &__title {
+    margin: 0;
+    
+    // Max brand size title
+    .wdl-section-hero--max-brand & {
+      font-family: map-get($wdl-fonts, gotham);
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 0.95;
+
+      .wdl-section-hero--desktop & {
+        font-size: 40px;
+        letter-spacing: -1.2px;
+        flex: 1 0 0; // Matching flex-[1_0_0]
+        min-height: 1px; // Matching min-h-px
+        min-width: 1px; // Matching min-w-px
+      }
+
+      .wdl-section-hero--mobile & {
+        font-size: 24px;
+        letter-spacing: -0.72px;
+        flex: 1 0 0; // Matching flex-[1_0_0]
+        min-height: 1px; // Matching min-h-px
+        min-width: 1px; // Matching min-w-px
+      }
+    }
+
+    // Medium size title
+    .wdl-section-hero--medium & {
+      font-family: map-get($wdl-fonts, gotham);
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 1;
+      letter-spacing: -0.96px;
+      color: map-get($wdl-text, text-primary);
+    }
+
+    // Small size title
+    .wdl-section-hero--small & {
+      font-family: map-get($wdl-fonts, gotham);
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 1.2;
+      letter-spacing: -0.6px;
+      color: map-get($wdl-text, text-primary);
+    }
+  }
+
+  // Subtitle/description text
+  &__subtitle {
+    font-family: map-get($wdl-fonts, gotham);
+    font-weight: 400;
+    margin-top: 8px;
+    
+    // Max brand size subtitle
+    .wdl-section-hero--max-brand & {
+      text-align: center;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: var(--spacing-08, 40px);
+      padding-right: var(--spacing-08, 40px);
+
+      .wdl-section-hero--desktop & {
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: -0.48px;
+      }
+
+      .wdl-section-hero--mobile & {
+        font-size: 14px;
+        line-height: 1.5;
+        letter-spacing: -0.42px;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
+    // Medium size subtitle
+    .wdl-section-hero--medium & {
+      font-size: 16px;
+      line-height: 1.2;
+      letter-spacing: -0.48px;
+      color: map-get($wdl-text, text-secondary);
+    }
+
+    // Small size subtitle
+    .wdl-section-hero--small & {
+      font-size: 14px;
+      line-height: 1.2;
+      letter-spacing: -0.42px;
+      color: map-get($wdl-text, text-secondary);
+      padding-bottom: var(--spacing-03, 8px);
+    }
+  }
+
+  // Tooltip for info icon
+  &__tooltip {
+    width: 18px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--medium, 8px);
+    }
+  }
+
+  // Link/CTA
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: map-get($wdl-link, link-primary);
+    text-decoration: none;
+    font-family: map-get($wdl-fonts, gotham);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: -0.48px;
+    cursor: pointer;
+    padding-top: var(--spacing-02, 4px);
+    align-self: flex-end;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    &:focus {
+      outline: 2px solid map-get($wdl-focus, focus);
+      outline-offset: 2px;
+    }
+
+    // Medium size specific link
+    .wdl-section-hero--medium & {
+      padding-top: var(--spacing-04, 12px);
+    }
+
+    // Icon within link
+    &-icon {
+      display: inline-flex;
+      width: 20px;
+      height: 20px;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  // Specific sizes styling
+  &--max-brand {
+    flex-direction: column;
+    align-items: center;
+    
+    &.wdl-section-hero--desktop {
+      gap: 24px;
+      max-width: 1312px;
+      padding-bottom: var(--spacing-09, 48px);
+      width: 1312px;
+      text-align: center;
+
+      .wdl-section-hero__background {
+        inset: 0 -64px;
+      }
+    }
+
+    &.wdl-section-hero--mobile {
+      gap: 16px;
+      width: 288px;
+      padding-bottom: var(--spacing-06, 24px);
+
+      .wdl-section-hero__background {
+        inset: 0 -16px;
+      }
+    }
+
+    // Gold theme specific for Max brand
+    &.wdl-section-hero--gold {
+      .wdl-section-hero__background {
+        background-color: white; // Exact color from Figma
+      }
+
+      .wdl-section-hero__tag {
+        color: #79766f; // Gold theme tag color
+      }
+
+      .wdl-section-hero__title {
+        color: #816c3c; // Exact color from Figma design
+      }
+
+      .wdl-section-hero__subtitle {
+        color: map-get($wdl-text, text-primary);
+      }
+    }
+
+    // Inverse Purple theme specific for Max brand
+    &.wdl-section-hero--inverse-purple {
+      &.wdl-section-hero--desktop {
+        padding-top: var(--spacing-11, 80px);
+      }
+
+      &.wdl-section-hero--mobile {
+        padding-top: var(--spacing-09, 48px);
+      }
+      
+      .wdl-section-hero__background {
+        background-color: #240330; // Exact color from Figma
+      }
+
+      .wdl-section-hero__tag {
+        color: #f57af9; // Exact color from Figma: highlight-brand-08
+      }
+
+      .wdl-section-hero__title,
+      .wdl-section-hero__subtitle {
+        color: map-get($wdl-text, text-inverse);
+      }
+    }
+
+    // Inverse Green theme specific for Max brand
+    &.wdl-section-hero--inverse-green {
+      &.wdl-section-hero--desktop {
+        padding-top: var(--spacing-11, 80px);
+      }
+
+      &.wdl-section-hero--mobile {
+        padding-top: var(--spacing-09, 48px);
+      }
+      
+      .wdl-section-hero__background {
+        background-color: #0b2917; // Exact color from Figma
+      }
+
+      .wdl-section-hero__tag {
+        color: #cae86b; // Exact color from Figma: highlight-brand-07
+      }
+
+      .wdl-section-hero__title,
+      .wdl-section-hero__subtitle {
+        color: map-get($wdl-text, text-inverse);
+      }
+    }
+
+    // Default theme specific for Max brand
+    &.wdl-section-hero--default {
+      .wdl-section-hero__background {
+        background-color: white; // Exact color from Figma
+      }
+
+      .wdl-section-hero__tag {
+        color: #79766f; // Exact color from Figma: highlight-brand-10-dark
+      }
+
+      .wdl-section-hero__title {
+        color: map-get($wdl-text, text-primary);
+      }
+
+      .wdl-section-hero__subtitle {
+        color: map-get($wdl-text, text-primary);
+      }
+    }
+  }
+
+  // Medium size
+  &--medium {
+    background-color: map-get($wdl-layer, layer-01);
+    gap: 16px;
+    align-items: flex-start;
+    padding-bottom: var(--spacing-06, 24px);
+    
+    &.wdl-section-hero--desktop {
+      width: 1312px;
+    }
+
+    .wdl-section-hero__title-area {
+      justify-content: flex-start;
+    }
+  }
+
+  // Small size
+  &--small {
+    background-color: map-get($wdl-layer, layer-01);
+    gap: 4px;
+    align-items: flex-start;
+    padding-bottom: var(--spacing-05, 16px);
+    
+    &.wdl-section-hero--desktop {
+      width: 1304px;
+    }
+
+    &.wdl-section-hero--mobile {
+      width: 288px;
+    }
+
+    .wdl-section-hero__title-area {
+      justify-content: flex-start;
+    }
+  }
+}

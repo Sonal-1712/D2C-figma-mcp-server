@@ -1,0 +1,206 @@
+// SectionHeroPage.scss
+@import '../../../design-system-v1/src/scss/colors.scss';
+@import '../../../design-system-v1/src/scss/typography.scss';
+
+.section-hero-page {
+  padding: 32px;
+  font-family: map-get($wdl-fonts, gotham);
+  max-width: 1400px;
+  margin: 0 auto;
+  
+  &__title {
+    @extend .wdl-heading-03-medium-sentencecase;
+    margin-bottom: 48px;
+    color: map-get($wdl-text, text-primary);
+  }
+  
+  &__section {
+    margin-bottom: 64px;
+  }
+  
+  &__heading {
+    @extend .wdl-heading-05-medium-sentencecase;
+    margin-bottom: 24px;
+    color: map-get($wdl-text, text-primary);
+    padding-bottom: 8px;
+    border-bottom: 1px solid map-get($wdl-border, border-subtle);
+  }
+  
+  &__control-heading {
+    @extend .wdl-heading-09-medium-sentencecase;
+    margin-bottom: 16px;
+    color: map-get($wdl-text, text-primary);
+  }
+  
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 32px;
+    padding: 24px;
+    background-color: map-get($wdl-layer, layer-01);
+    border-radius: var(--medium, 8px);
+  }
+  
+  &__control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  &__control-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    
+    &--checkboxes {
+      align-items: center;
+    }
+  }
+  
+  &__control {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 200px;
+    flex: 1;
+    
+    label {
+      font-size: 14px;
+      font-weight: 500;
+      color: map-get($wdl-text, text-primary);
+    }
+    
+    input[type="text"],
+    textarea,
+    select {
+      padding: 8px 12px;
+      border: 1px solid map-get($wdl-border, border-strong);
+      border-radius: var(--medium, 8px);
+      font-family: map-get($wdl-fonts, gotham);
+      font-size: 14px;
+      width: 100%;
+      
+      &:focus {
+        outline: none;
+        border-color: map-get($wdl-focus, focus);
+        box-shadow: 0 0 0 1px map-get($wdl-focus, focus);
+      }
+    }
+    
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    
+    &--checkbox {
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+      
+      input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+  
+  &__control-note {
+    font-size: 12px;
+    color: map-get($wdl-text, text-secondary);
+    margin-left: 8px;
+  }
+  
+  &__preview {
+    padding: 24px;
+    background-color: map-get($wdl-layer, layer-01);
+    border-radius: var(--medium, 8px);
+  }
+  
+  &__preview-container {
+    overflow: hidden;
+    
+    &--desktop {
+      width: 100%;
+      max-width: 1312px;
+      margin: 0 auto;
+    }
+    
+    &--mobile {
+      width: 320px;
+      margin: 0 auto;
+    }
+  }
+  
+  &__examples {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
+  
+  &__example {
+    overflow: hidden;
+  }
+  
+  &__example-title {
+    @extend .wdl-heading-09-medium-sentencecase;
+    margin-bottom: 16px;
+    color: map-get($wdl-text, text-primary);
+  }
+  
+  &__example-container {
+    width: 100%;
+    overflow: hidden;
+    
+    &--mobile {
+      width: 320px;
+    }
+  }
+  
+  &__guidelines {
+    padding: 24px;
+    background-color: map-get($wdl-layer, layer-01);
+    border-radius: var(--medium, 8px);
+    
+    h3 {
+      @extend .wdl-heading-09-medium-sentencecase;
+      margin-bottom: 16px;
+      margin-top: 24px;
+      color: map-get($wdl-text, text-primary);
+      
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    
+    ul {
+      margin: 0 0 24px 0;
+      padding-left: 24px;
+      
+      li {
+        margin-bottom: 8px;
+        font-size: 14px;
+        line-height: 1.5;
+        color: map-get($wdl-text, text-primary);
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    padding: 16px;
+    
+    &__control-row {
+      flex-direction: column;
+    }
+    
+    &__preview-container {
+      &--desktop {
+        overflow-x: auto;
+      }
+    }
+  }
+}

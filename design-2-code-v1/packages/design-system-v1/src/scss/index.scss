@@ -1,0 +1,17 @@
+/**
+ * Wimbledon Design System - Main SCSS Entry Point
+ * 
+ * This file imports all design system styles and makes them available
+ * to applications that import this module.
+ */
+
+// Import base design system files
+@import "../../colors.scss";
+@import "../../typography.scss";
+@import "../../tokens.scss";
+
+// Import component-specific styles
+@import "./colors.scss";
+@import "./typography.scss";
+@import "./tokens.scss";
+@import "./mixins.scss";

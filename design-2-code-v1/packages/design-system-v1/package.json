@@ -1,0 +1,47 @@
+{
+  "name": "@design-2-code/design-system-v1",
+  "version": "1.0.0",
+  "description": "Design-to-Code Design System - Global design tokens and styles for Design-to-Code React component libraries",
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "style": "dist/css/index.css",
+  "sass": "src/index.scss",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "carbon-components": "^10.58.3"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "esbuild-sass-plugin": "^2.16.0",
+    "rimraf": "^5.0.1",
+    "sass": "^1.69.0",
+    "tsup": "^7.0.0",
+    "typescript": "^5.1.6"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "design-to-code",
+    "design system",
+    "react",
+    "scss",
+    "typescript"
+  ],
+  "author": "Design-to-Code",
+  "license": "MIT"
+}

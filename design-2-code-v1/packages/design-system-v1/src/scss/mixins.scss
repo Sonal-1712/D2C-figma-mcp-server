@@ -1,0 +1,17 @@
+/**
+ * Wimbledon Design Language — UI Mixins SCSS
+ * File: mixins.scss
+ * 
+ * This file provides mixins for common UI patterns
+ */
+
+@import "../../typography.scss";
+
+// Button text style mixin
+@mixin text-button {
+  font-family: map-get($wdl-fonts, gotham);
+  font-weight: map-get($wdl-weights, bold);
+  font-size: 1rem; // 16px
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}

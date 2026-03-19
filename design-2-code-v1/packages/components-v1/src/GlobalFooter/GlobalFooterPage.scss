@@ -1,0 +1,74 @@
+// GlobalFooterPage.scss
+@import '../../../design-system-v1/src/scss/colors.scss';
+@import '../../../design-system-v1/src/scss/typography.scss';
+
+.global-footer-page {
+  padding: 32px;
+  font-family: map-get($wdl-fonts, gotham);
+  max-width: 1440px;
+  margin: 0 auto;
+
+  &__title {
+    @extend .wdl-heading-02;
+    margin-bottom: 32px;
+    color: map-get($wdl-text, text-primary);
+  }
+
+  &__section {
+    margin-bottom: 64px;
+    border-bottom: 1px solid map-get($wdl-border, border-strong);
+    padding-bottom: 32px;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__heading {
+    @extend .wdl-heading-05;
+    margin-bottom: 16px;
+    color: map-get($wdl-text, text-primary);
+  }
+
+  &__container {
+    border: 1px solid map-get($wdl-border, border-strong);
+    margin-bottom: 24px;
+    overflow: hidden;
+    
+    &--mobile {
+      max-width: 320px;
+    }
+
+    &--tablet {
+      max-width: 675px;
+    }
+
+    &--desktop, &--max {
+      width: 100%;
+    }
+
+    &--dark {
+      background-color: map-get($wdl-background, background-inverse-01);
+      color: map-get($wdl-text, text-on-colour);
+    }
+  }
+
+  &__description {
+    @extend .wdl-body-03;
+    color: map-get($wdl-text, text-secondary);
+    max-width: 800px;
+    
+    p {
+      margin-bottom: 12px;
+    }
+
+    ul {
+      margin-left: 20px;
+      
+      li {
+        margin-bottom: 8px;
+        list-style-type: disc;
+      }
+    }
+  }
+}

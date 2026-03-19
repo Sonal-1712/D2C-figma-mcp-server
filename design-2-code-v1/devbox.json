@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.13.6/.schema/devbox.schema.json",
+  "env": {
+    "DEVBOX_COREPACK_ENABLED": "true"
+  },
+  "packages": [
+    "nodejs@20"
+  ],
+  "shell": {
+    "init_hook": ["echo 'Welcome to the Design-to-Code development environment!' > /dev/null"],
+    "scripts": {}
+  }
+}

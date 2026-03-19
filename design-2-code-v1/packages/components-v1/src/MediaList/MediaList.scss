@@ -1,0 +1,221 @@
+// MediaList.scss
+@import '../../../design-system-v1/src/scss/colors.scss';
+@import '../../../design-system-v1/src/scss/typography.scss';
+@import '../../../design-system-v1/src/scss/tokens.scss';
+
+.media-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: map-get($wdl-layer, layer-01);
+  border: 1px solid map-get($wdl-border, border-strong);
+  border-radius: 8px; // medium radius
+  width: 895px;
+  overflow: hidden;
+  padding: 0 16px; // spacing-05
+}
+
+.media-tile-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 16px;
+  width: 100%;
+  padding: 16px 0px; // spacing-05 for top/bottom, 0px for left/right
+  border-bottom: 1px solid map-get($wdl-border, border-strong);
+  flex-shrink: 0;
+
+  &.hover {
+    background-color: map-get($wdl-background, background-hover);
+  }
+
+  &.active {
+    background-color: map-get($wdl-background, background-active);
+  }
+
+  &.selected {
+    background-color: map-get($wdl-background, background-selected);
+  }
+
+  &.focus {
+    outline: 2px solid map-get($wdl-focus, focus);
+    outline-offset: -2px;
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &.skeleton {
+    .content, .play-icon {
+      opacity: 0.5;
+      background-color: map-get($wdl-misc, skeleton-element);
+    }
+  }
+
+  .background {
+    position: absolute;
+    inset: 0 -17px -1px -16px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    min-height: 1px;
+    min-width: 1px;
+    flex: 1 0 0;
+    padding-right: 8px;
+    position: relative;
+
+    .tags {
+      display: flex;
+      gap: 4px;
+      align-items: flex-start;
+      position: relative;
+      flex-shrink: 0;
+
+      .tag {
+        display: flex;
+        align-items: center;
+        min-height: 15px;
+        padding: 4px 6px;
+        border-radius: 1000000000px; // var(--round) - very large value to create rounded pill shape
+        flex-shrink: 0;
+
+        p {
+          @extend .wdl-tag-03;
+          position: relative;
+          flex-shrink: 0;
+          white-space: nowrap;
+        }
+
+        &.on-air {
+          background-color: map-get($wdl-background, background-brand-01);
+          gap: 4px;
+          
+          p {
+            color: map-get($wdl-text, text-highlight);
+          }
+          
+          .live-icon {
+            position: relative;
+            width: 12px;
+            height: 12px;
+            flex-shrink: 0;
+            background-color: transparent;
+            
+            &::before {
+              content: '';
+              position: absolute;
+              width: 12px;
+              height: 12px;
+              background-color: red;
+              border-radius: 50%;
+            }
+            
+            &::after {
+              content: '';
+              position: absolute;
+              width: 6px;
+              height: 6px;
+              top: 3px;
+              left: 3px;
+              background-color: white;
+              border-radius: 50%;
+            }
+          }
+        }
+
+        &.off-air {
+          background-color: map-get($wdl-icon, icon-secondary);
+          
+          p {
+            color: map-get($wdl-text, text-on-colour);
+          }
+        }
+
+        &.radio {
+          background-color: #f2f4f8; // map-get($wdl-brand-tag-grey, tag-background)
+          
+          p {
+            color: map-get($wdl-icon, icon-secondary);
+          }
+        }
+      }
+
+      .logo {
+        height: 15px;
+        width: 104px;
+        position: relative;
+        flex-shrink: 0;
+        
+        .logo-wrapper {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          pointer-events: none;
+          
+          img {
+            position: absolute;
+            height: 100%;
+            left: -0.06%;
+            top: 0;
+            width: 50.48%;
+          }
+        }
+      }
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+      flex-shrink: 0;
+      width: 100%;
+      
+      .title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        flex-shrink: 0;
+        width: 100%;
+        
+        p {
+          @extend .wdl-heading-12;
+          color: map-get($wdl-text, text-primary);
+          line-height: 1.2;
+        }
+      }
+
+      .subtitle {
+        @extend .wdl-body-03;
+        position: relative;
+        flex-shrink: 0;
+        color: map-get($wdl-text, text-secondary);
+        width: 100%;
+      }
+    }
+  }
+
+  .play-icon {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    overflow: clip;
+    
+    .icon {
+      position: absolute;
+      inset: 12.5% 12.5% 12.5% 18.75%;
+      width: 8px; // Approximation for play icon triangle
+      height: 15px; // Approximation for play icon triangle
+      background-color: map-get($wdl-icon, icon-primary);
+      clip-path: polygon(0% 0%, 100% 50%, 0% 100%); // Triangle shape for play icon
+    }
+  }
+}
